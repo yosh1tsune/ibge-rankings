@@ -5,7 +5,7 @@ require 'sqlite3'
 
 $db = SQLite3::Database.new "test.db"
 
-class Estados
+class Estado
   def self.get_ufs
     response = $db.execute('SELECT * FROM estados')
     puts "Unidades Federativas do Brasil: \n\n"
