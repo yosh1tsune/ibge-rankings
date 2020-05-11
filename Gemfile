@@ -4,4 +4,5 @@ gem 'activesupport'
 gem 'byebug'
 gem 'faraday'
 gem 'rspec'
-gem "sqlite3"
+gem 'sqlite3'
+gem 'terminal-table'

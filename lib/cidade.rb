@@ -3,7 +3,6 @@ require 'faraday'
 require 'json'
 require 'sqlite3'
 
-
 class Cidade
   @db = SQLite3::Database.new "test.db"
   puts "Estatísticas por Cidade: \n\n"

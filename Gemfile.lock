@@ -30,9 +30,12 @@ GEM
       rspec-support (~> 3.9.0)
     rspec-support (3.9.3)
     sqlite3 (1.4.2)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
     thread_safe (0.3.6)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    unicode-display_width (1.7.0)
     zeitwerk (2.3.0)
 
 PLATFORMS
@@ -44,6 +47,7 @@ DEPENDENCIES
   faraday
   rspec
   sqlite3
+  terminal-table
 
 BUNDLED WITH
    2.1.4

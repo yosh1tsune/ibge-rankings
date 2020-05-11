@@ -1,5 +1,6 @@
 require_relative 'estado.rb'
 require_relative 'cidade.rb'
+require_relative 'decada.rb'
 require_relative 'database_setup.rb'
 
 input = nil
@@ -29,7 +30,10 @@ while input != '4' do
     local = $stdin.gets.chomp.upcase
     Cidade.get_cidade(local)
   elsif input == '3'
-
+    puts "\nDigite um ou mais nomes, separados por vírgula, para ver sua "\
+         "frequência de uso por década: \n\n"
+    nomes = $stdin.gets.chomp.upcase
+    Decada.get_nomes(nomes)
   end
 end
 
