@@ -1,4 +1,4 @@
-require 'estados'
+require 'estado'
 require 'active_support/core_ext/kernel/reporting'
 
 describe 'Rankings estados' do
@@ -6,7 +6,7 @@ describe 'Rankings estados' do
     uf = [35, 'São Paulo', 'SP']
     $stdout = StringIO.new
 
-    Estados.uf_geral(uf)
+    Estado.uf_geral(uf)
     $stdout.rewind
 
     expect($stdout.gets.strip).to include 
@@ -38,7 +38,7 @@ describe 'Rankings estados' do
     uf = [35, 'São Paulo', 'SP']
     $stdout = StringIO.new
 
-    Estados.uf_geral(uf)
+    Estado.uf_geral(uf)
     $stdout.rewind
 
     expect($stdout.gets.strip).to include 
@@ -70,7 +70,7 @@ describe 'Rankings estados' do
     uf = [35, 'São Paulo', 'SP']
     $stdout = StringIO.new
 
-    Estados.uf_geral(uf)
+    Estado.uf_geral(uf)
     $stdout.rewind
 
     expect($stdout.gets.strip).to include 
