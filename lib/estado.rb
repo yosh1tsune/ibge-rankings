@@ -17,6 +17,16 @@ class Estado
     return response
   end
 
+  def self.chama_rankings(sigla)
+    uf = @db.execute("SELECT * FROM estados WHERE sigla = '#{sigla}'")
+    return puts "\nUF não encontrada! Insira uma UF válida." if uf.empty?
+
+    uf_geral(uf[0])
+    uf_masc(uf[0])
+    uf_fem(uf[0])
+    return 'ok'
+  end
+
   def self.uf_geral(uf)
     rows = []
     response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\

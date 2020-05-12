@@ -8,21 +8,23 @@ input = nil
 
 database_setup
 
+puts "\n\nBem vindo(a) ao buscador de frequência de nomes no Brasil!"
+
 while input != '4' do
   puts "\nEscolha uma das seguintes opções: \n
         1 - Rankings por UF
         2 - Rankings por cidade
         3 - Frequencia de um nome por década
         4 - Sair \n\n"
-  input = gets.chomp
+  input = $stdin.gets.chomp
   if input == '1'
-    response = Estado.get_ufs
-    puts "\nDigite a sigla de um Estado para ver os rankings: \n\n"
-    uf = $stdin.gets.chomp.upcase
-    response.each do |r|
-      Estado.uf_geral(r) if r[2] == uf
-      Estado.uf_masc(r) if r[2] == uf
-      Estado.uf_fem(r) if r[2] == uf
+    Estado.get_ufs
+    uf = nil
+    while uf != 'ok'
+      puts "\nDigite a sigla de um Estado para ver os rankings ou 'ok' para retornar: \n\n"
+      uf = $stdin.gets.chomp.upcase
+      break if uf == 'OK'
+      uf = Estado.chama_rankings(uf)
     end
   elsif input == '2'
     response = Estado.get_ufs

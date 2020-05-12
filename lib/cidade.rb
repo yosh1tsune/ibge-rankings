@@ -7,7 +7,6 @@ require 'terminal-table'
 
 class Cidade
   @db = SQLite3::Database.new "test.db"
-  puts "Estatísticas por Cidade: \n\n"
   def self.get_cidade(local)
     cidade = local.split(',')[0].delete(',').lstrip.rstrip
     uf = local.split(',')[1].lstrip.rstrip

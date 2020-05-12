@@ -2,99 +2,271 @@ require 'estado'
 require 'active_support/core_ext/kernel/reporting'
 
 describe 'Rankings estados' do
-  it 'mostra com sucesso o ranking geral de um estado' do
-    uf = [35, 'São Paulo', 'SP']
-    $stdout = StringIO.new
+  it 'mostra com sucesso os rankings de um estado' do
+    allow($stdin).to receive(:gets).and_return("1", "sp", "4")
 
-    Estado.uf_geral(uf)
-    $stdout.rewind
+    expect { load "./lib/app.rb" }.to output("Aguarde enquando o banco de dados é configurado :)
+Tudo pronto! Hora da diversão :D
 
-    expect($stdout.gets.strip).to include 
-      "Ranking Geral: SP
-      
-      1. MARIA - Frequência: 2143232
-      2. JOSE - Frequência: 1118772
-      3. ANA - Frequência: 664153
-      4. JOAO - Frequência: 610851
-      5. ANTONIO - Frequência: 497959
-      6. PAULO - Frequência: 333637
-      7. CARLOS - Frequência: 328926
-      8. LUCAS - Frequência: 282840
-      9. LUIZ - Frequência: 270982
-      10. PEDRO - Frequência: 264316
-      11. MARCOS - Frequência: 258443
-      12. GABRIEL - Frequência: 256501
-      13. LUIS - Frequência: 246582
-      14. RAFAEL - Frequência: 231278
-      15. FRANCISCO - Frequência: 201111
-      16. MARCELO - Frequência: 197445
-      17. BRUNO - Frequência: 188035
-      18. FELIPE - Frequência: 186363
-      19. GUILHERME - Frequência: 176046
-      20. RODRIGO - Frequência: 173059"
+
+Bem vindo(a) ao buscador de frequência de nomes no Brasil!
+
+Escolha uma das seguintes opções: 
+
+        1 - Rankings por UF
+        2 - Rankings por cidade
+        3 - Frequencia de um nome por década
+        4 - Sair 
+
+
+Unidades Federativas do Brasil: 
+
+Rondônia - RO
+Acre - AC
+Amazonas - AM
+Roraima - RR
+Pará - PA
+Amapá - AP
+Tocantins - TO
+Maranhão - MA
+Piauí - PI
+Ceará - CE
+Rio Grande do Norte - RN
+Paraíba - PB
+Pernambuco - PE
+Alagoas - AL
+Sergipe - SE
+Bahia - BA
+Minas Gerais - MG
+Espírito Santo - ES
+Rio de Janeiro - RJ
+São Paulo - SP
+Paraná - PR
+Santa Catarina - SC
+Rio Grande do Sul - RS
+Mato Grosso do Sul - MS
+Mato Grosso - MT
+Goiás - GO
+Distrito Federal - DF
+
+Digite a sigla de um Estado para ver os rankings ou 'ok' para retornar: 
+
++---------+-----------+---------+-------------------------+
+|                    Ranking Geral: SP                    |
++---------+-----------+---------+-------------------------+
+| Posição | Nome      | Uso     | Percentual na população |
++---------+-----------+---------+-------------------------+
+| 1       | MARIA     | 2143232 | 4.67%                   |
+| 2       | JOSE      | 1118772 | 2.44%                   |
+| 3       | ANA       | 664153  | 1.45%                   |
+| 4       | JOAO      | 610851  | 1.33%                   |
+| 5       | ANTONIO   | 497959  | 1.08%                   |
+| 6       | PAULO     | 333637  | 0.73%                   |
+| 7       | CARLOS    | 328926  | 0.72%                   |
+| 8       | LUCAS     | 282840  | 0.62%                   |
+| 9       | LUIZ      | 270982  | 0.59%                   |
+| 10      | PEDRO     | 264316  | 0.58%                   |
+| 11      | MARCOS    | 258443  | 0.56%                   |
+| 12      | GABRIEL   | 256501  | 0.56%                   |
+| 13      | LUIS      | 246582  | 0.54%                   |
+| 14      | RAFAEL    | 231278  | 0.5%                    |
+| 15      | FRANCISCO | 201111  | 0.44%                   |
+| 16      | MARCELO   | 197445  | 0.43%                   |
+| 17      | BRUNO     | 188035  | 0.41%                   |
+| 18      | FELIPE    | 186363  | 0.41%                   |
+| 19      | GUILHERME | 176046  | 0.38%                   |
+| 20      | RODRIGO   | 173059  | 0.38%                   |
++---------+-----------+---------+-------------------------+
++---------+-----------+---------+-------------------------+
+|                  Ranking Masculino: SP                  |
++---------+-----------+---------+-------------------------+
+| Posição | Nome      | Uso     | Percentual na população |
++---------+-----------+---------+-------------------------+
+| 1       | JOSE      | 1115060 | 2.43%                   |
+| 2       | JOAO      | 608330  | 1.32%                   |
+| 3       | ANTONIO   | 496524  | 1.08%                   |
+| 4       | PAULO     | 332376  | 0.72%                   |
+| 5       | CARLOS    | 327672  | 0.71%                   |
+| 6       | LUCAS     | 280197  | 0.61%                   |
+| 7       | LUIZ      | 269909  | 0.59%                   |
+| 8       | PEDRO     | 262959  | 0.57%                   |
+| 9       | MARCOS    | 257364  | 0.56%                   |
+| 10      | GABRIEL   | 253754  | 0.55%                   |
+| 11      | LUIS      | 245546  | 0.53%                   |
+| 12      | RAFAEL    | 229331  | 0.5%                    |
+| 13      | FRANCISCO | 200457  | 0.44%                   |
+| 14      | MARCELO   | 196612  | 0.43%                   |
+| 15      | BRUNO     | 186596  | 0.41%                   |
+| 16      | FELIPE    | 184644  | 0.4%                    |
+| 17      | GUILHERME | 174690  | 0.38%                   |
+| 18      | RODRIGO   | 172242  | 0.38%                   |
+| 19      | EDUARDO   | 165321  | 0.36%                   |
+| 20      | GUSTAVO   | 164437  | 0.36%                   |
++---------+-----------+---------+-------------------------+
++---------+-----------+---------+-------------------------+
+|                  Ranking Feminino: SP                   |
++---------+-----------+---------+-------------------------+
+| Posição | Nome      | Uso     | Percentual na população |
++---------+-----------+---------+-------------------------+
+| 1       | MARIA     | 2136057 | 4.65%                   |
+| 2       | ANA       | 662035  | 1.44%                   |
+| 3       | JULIANA   | 157939  | 0.34%                   |
+| 4       | MARCIA    | 152146  | 0.33%                   |
+| 5       | ADRIANA   | 149268  | 0.33%                   |
+| 6       | APARECIDA | 143645  | 0.31%                   |
+| 7       | FERNANDA  | 140306  | 0.31%                   |
+| 8       | PATRICIA  | 139205  | 0.3%                    |
+| 9       | ALINE     | 131893  | 0.29%                   |
+| 10      | CAMILA    | 131233  | 0.29%                   |
+| 11      | SANDRA    | 131018  | 0.29%                   |
+| 12      | BRUNA     | 129465  | 0.28%                   |
+| 13      | JULIA     | 127506  | 0.28%                   |
+| 14      | LETICIA   | 122960  | 0.27%                   |
+| 15      | BEATRIZ   | 122096  | 0.27%                   |
+| 16      | GABRIELA  | 118669  | 0.26%                   |
+| 17      | JESSICA   | 116920  | 0.25%                   |
+| 18      | AMANDA    | 116617  | 0.25%                   |
+| 19      | LUCIANA   | 112676  | 0.25%                   |
+| 20      | VANESSA   | 110214  | 0.24%                   |
++---------+-----------+---------+-------------------------+
+
+Escolha uma das seguintes opções: 
+
+        1 - Rankings por UF
+        2 - Rankings por cidade
+        3 - Frequencia de um nome por década
+        4 - Sair 
+
+Adios!
+").to_stdout
   end
 
-  it 'mostra com sucesso o ranking mawsculino de um estado' do
-    uf = [35, 'São Paulo', 'SP']
-    $stdout = StringIO.new
+  it 'ou pede uma nova sigla caso a inserida seja incorreta' do
+    allow($stdin).to receive(:gets).and_return('1', 'JP', 'ok', '4')
 
-    Estado.uf_geral(uf)
-    $stdout.rewind
+    expect{ load './lib/app.rb'}.to output(
+"Aguarde enquando o banco de dados é configurado :)
+Tudo pronto! Hora da diversão :D
 
-    expect($stdout.gets.strip).to include 
-      "Ranking Feminino: SP 
 
-      1. MARIA - Frequência: 2136057
-      2. ANA - Frequência: 662035
-      3. JULIANA - Frequência: 157939
-      4. MARCIA - Frequência: 152146
-      5. ADRIANA - Frequência: 149268
-      6. APARECIDA - Frequência: 143645
-      7. FERNANDA - Frequência: 140306
-      8. PATRICIA - Frequência: 139205
-      9. ALINE - Frequência: 131893
-      10. CAMILA - Frequência: 131233
-      11. SANDRA - Frequência: 131018
-      12. BRUNA - Frequência: 129465
-      13. JULIA - Frequência: 127506
-      14. LETICIA - Frequência: 122960
-      15. BEATRIZ - Frequência: 122096
-      16. GABRIELA - Frequência: 118669
-      17. JESSICA - Frequência: 116920
-      18. AMANDA - Frequência: 116617
-      19. LUCIANA - Frequência: 112676
-      20. VANESSA - Frequência: 110214"
+Bem vindo(a) ao buscador de frequência de nomes no Brasil!
+
+Escolha uma das seguintes opções: 
+
+        1 - Rankings por UF
+        2 - Rankings por cidade
+        3 - Frequencia de um nome por década
+        4 - Sair 
+
+
+Unidades Federativas do Brasil: 
+
+Rondônia - RO
+Acre - AC
+Amazonas - AM
+Roraima - RR
+Pará - PA
+Amapá - AP
+Tocantins - TO
+Maranhão - MA
+Piauí - PI
+Ceará - CE
+Rio Grande do Norte - RN
+Paraíba - PB
+Pernambuco - PE
+Alagoas - AL
+Sergipe - SE
+Bahia - BA
+Minas Gerais - MG
+Espírito Santo - ES
+Rio de Janeiro - RJ
+São Paulo - SP
+Paraná - PR
+Santa Catarina - SC
+Rio Grande do Sul - RS
+Mato Grosso do Sul - MS
+Mato Grosso - MT
+Goiás - GO
+Distrito Federal - DF
+
+Digite a sigla de um Estado para ver os rankings ou 'ok' para retornar: 
+
+
+UF não encontrada! Insira uma UF válida.
+
+Digite a sigla de um Estado para ver os rankings ou 'ok' para retornar: 
+
+
+Escolha uma das seguintes opções: 
+
+        1 - Rankings por UF
+        2 - Rankings por cidade
+        3 - Frequencia de um nome por década
+        4 - Sair 
+
+Adios!
+").to_stdout
   end
 
-  it 'mostra com sucesso o ranking mawsculino de um estado' do
-    uf = [35, 'São Paulo', 'SP']
-    $stdout = StringIO.new
+it 'ou retorna para o inicio sem consultar' do
+  allow($stdin).to receive(:gets).and_return('1', 'ok', '4')
 
-    Estado.uf_geral(uf)
-    $stdout.rewind
+  expect{ load './lib/app.rb'}.to output(
+"Aguarde enquando o banco de dados é configurado :)
+Tudo pronto! Hora da diversão :D
 
-    expect($stdout.gets.strip).to include 
-      "Ranking Masculino: SP 
 
-      1. JOSE - Frequência: 1115060
-      2. JOAO - Frequência: 608330
-      3. ANTONIO - Frequência: 496524
-      4. PAULO - Frequência: 332376
-      5. CARLOS - Frequência: 327672
-      6. LUCAS - Frequência: 280197
-      7. LUIZ - Frequência: 269909
-      8. PEDRO - Frequência: 262959
-      9. MARCOS - Frequência: 257364
-      10. GABRIEL - Frequência: 253754
-      11. LUIS - Frequência: 245546
-      12. RAFAEL - Frequência: 229331
-      13. FRANCISCO - Frequência: 200457
-      14. MARCELO - Frequência: 196612
-      15. BRUNO - Frequência: 186596
-      16. FELIPE - Frequência: 184644
-      17. GUILHERME - Frequência: 174690
-      18. RODRIGO - Frequência: 172242
-      19. EDUARDO - Frequência: 165321
-      20. GUSTAVO - Frequência: 164437"
+Bem vindo(a) ao buscador de frequência de nomes no Brasil!
+
+Escolha uma das seguintes opções: 
+
+        1 - Rankings por UF
+        2 - Rankings por cidade
+        3 - Frequencia de um nome por década
+        4 - Sair 
+
+
+Unidades Federativas do Brasil: 
+
+Rondônia - RO
+Acre - AC
+Amazonas - AM
+Roraima - RR
+Pará - PA
+Amapá - AP
+Tocantins - TO
+Maranhão - MA
+Piauí - PI
+Ceará - CE
+Rio Grande do Norte - RN
+Paraíba - PB
+Pernambuco - PE
+Alagoas - AL
+Sergipe - SE
+Bahia - BA
+Minas Gerais - MG
+Espírito Santo - ES
+Rio de Janeiro - RJ
+São Paulo - SP
+Paraná - PR
+Santa Catarina - SC
+Rio Grande do Sul - RS
+Mato Grosso do Sul - MS
+Mato Grosso - MT
+Goiás - GO
+Distrito Federal - DF
+
+Digite a sigla de um Estado para ver os rankings ou 'ok' para retornar: 
+
+
+Escolha uma das seguintes opções: 
+
+        1 - Rankings por UF
+        2 - Rankings por cidade
+        3 - Frequencia de um nome por década
+        4 - Sair 
+
+Adios!
+").to_stdout
   end
 end
