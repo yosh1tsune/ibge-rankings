@@ -8,14 +8,23 @@ require 'terminal-table'
 class Cidade
   @db = SQLite3::Database.new "test.db"
   def self.get_cidade(local)
+    return if local.empty?
+
     cidade = local.split(',')[0].delete(',').lstrip.rstrip
-    uf = local.split(',')[1].lstrip.rstrip
+    uf = local.split(',')[1].lstrip.rstrip if local.split(',')[1] != nil
     ufid = @db.execute("SELECT * FROM estados WHERE sigla = '#{uf}'")
+    return puts "\nUF não encontrada. Certifique-se de que inseriu Cidade e "\
+                'UF separados por vírgula!' if ufid.empty?
+
     local = @db.execute("SELECT * FROM cidades WHERE nome = '#{cidade}' "\
                         "AND ufid = '#{ufid[0][0]}'")
+    return puts "\nCidade não encontrada. Certifique-se de que inseriu "\
+                'o nome correto!' if local.empty?
+
     cidade_geral(local, uf)
     cidade_masculino(local, uf)
     cidade_feminino(local, uf)
+    return 'ok'
   end
 
   def self.cidade_geral(local, uf)

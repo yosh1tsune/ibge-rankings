@@ -21,20 +21,26 @@ while input != '4' do
     Estado.get_ufs
     uf = nil
     while uf != 'ok'
-      puts "\nDigite a sigla de um Estado para ver os rankings ou 'ok' para retornar: \n\n"
+      puts "\nDigite a sigla de um Estado para ver os rankings ou 'ok' "\
+           "para retornar: \n\n"
       uf = $stdin.gets.chomp.upcase
       break if uf == 'OK'
       uf = Estado.chama_rankings(uf)
     end
   elsif input == '2'
     response = Estado.get_ufs
-    puts "\nDigite uma cidade e a sigla de seu Estado, separados por virgula "\
-         "(Ex: 'São Paulo, SP') para ver os rankings: \n\n"
-    local = $stdin.gets.chomp.upcase
-    Cidade.get_cidade(local)
+    local = nil
+    while local != 'ok'
+      puts "\nDigite uma cidade (com acentos) e a sigla de sua UF, separados "\
+           "por virgula (Ex: São Paulo, SP), para ver os rankings "\
+           "ou 'ok' para retornar:\n\n"
+      local = $stdin.gets.chomp.upcase
+      break if local == 'OK'
+      local = Cidade.get_cidade(local)
+    end
   elsif input == '3'
     puts "\nDigite um ou mais nomes, separados por vírgula, para ver sua "\
-         "frequência de uso por década: \n\n"
+         "frequência de uso por década ou 'ok' para retornar: \n\n"
     nomes = $stdin.gets.chomp.upcase
     Decada.get_nomes(nomes)
   end
