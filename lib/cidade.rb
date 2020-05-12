@@ -1,7 +1,9 @@
 require 'byebug'
+require 'csv'
 require 'faraday'
 require 'json'
 require 'sqlite3'
+require 'terminal-table'
 
 class Cidade
   @db = SQLite3::Database.new "test.db"
@@ -18,32 +20,56 @@ class Cidade
   end
 
   def self.cidade_geral(local, uf)
+    rows = []
     response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\
                            "nomes/ranking?localidade=#{local[0][0]}"
     response = JSON.parse(response.body, symbolize_names: true)
-    puts "\nRanking Geral: #{local[0][1]}, #{uf} \n\n"
     response[0][:res].each do |r|
-      puts "#{r[:ranking]}. #{r[:nome]} - Frequência: #{r[:frequencia]}"
+      populacao = percentual_populacao(local[0][0], r[:frequencia])
+      rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
     end
+    table = Terminal::Table.new :title => "Ranking Geral: #{local[0][1]}, #{uf}", 
+                                :headings => ['Posição', 'Nome', 'Uso',
+                                              'Percentual na população'],
+                                :rows => rows
+    puts table
   end
 
   def self.cidade_masculino(local, uf)
+    rows = []
     response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\
                            "nomes/ranking?localidade=#{local[0][0]}&sexo=M"
     response = JSON.parse(response.body, symbolize_names: true)
-    puts "\nRanking Geral: #{local[0][1]}, #{uf} \n\n"
     response[0][:res].each do |r|
-      puts "#{r[:ranking]}. #{r[:nome]} - Frequência: #{r[:frequencia]}"
+      populacao = percentual_populacao(local[0][0], r[:frequencia])
+      rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
     end
+    table = Terminal::Table.new :title => "Ranking Masculino: #{local[0][1]}, #{uf}", 
+                                :headings => ['Posição', 'Nome', 'Uso',
+                                              'Percentual na população'],
+                                :rows => rows
+    puts table
   end
 
   def self.cidade_feminino(local, uf)
+    rows = []
     response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\
                            "nomes/ranking?localidade=#{local[0][0]}&sexo=F"
     response = JSON.parse(response.body, symbolize_names: true)
-    puts "\nRanking Geral: #{local[0][1]}, #{uf} \n\n"
     response[0][:res].each do |r|
-      puts "#{r[:ranking]}. #{r[:nome]} - Frequência: #{r[:frequencia]}"
+      populacao = percentual_populacao(local[0][0], r[:frequencia])
+      rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
     end
+    table = Terminal::Table.new :title => "Ranking Feminino: #{local[0][1]}, #{uf}", 
+                                :headings => ['Posição', 'Nome', 'Uso',
+                                              'Percentual na população'],
+                                :rows => rows
+    puts table
+  end
+
+  def self.percentual_populacao(id, frequencia)
+    csv = CSV.parse(File.read('./files/populacao_2019.csv'),headers: :first_row)
+    populacao = csv.find{ |row| row['Cód.'] == "#{id}"}['População Residente - 2019']
+    populacao = (frequencia / populacao.to_f) * 100
   end
 end

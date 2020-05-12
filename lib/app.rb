@@ -2,6 +2,7 @@ require_relative 'estado.rb'
 require_relative 'cidade.rb'
 require_relative 'decada.rb'
 require_relative 'database_setup.rb'
+require 'csv'
 
 input = nil
 
