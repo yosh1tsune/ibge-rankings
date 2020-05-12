@@ -39,10 +39,16 @@ while input != '4' do
       local = Cidade.get_cidade(local)
     end
   elsif input == '3'
-    puts "\nDigite um ou mais nomes, separados por vírgula, para ver sua "\
-         "frequência de uso por década ou 'ok' para retornar: \n\n"
-    nomes = $stdin.gets.chomp.upcase
-    Decada.get_nomes(nomes)
+    nomes = nil
+    while nomes != 'ok'
+      puts "\nA base de dados do IBGE não leva em conta nomes compostos "\
+          "(Ex: João Carlos), utilize apenas o primeiro nome."
+      puts "Digite um ou mais nomes, separados por vírgula, para ver sua "\
+          "frequência de uso por década ou 'ok' para retornar: \n\n"
+      nomes = $stdin.gets.chomp.upcase
+      break if nomes == 'OK'
+      nomes = Decada.get_nomes(nomes)
+    end
   end
 end
 

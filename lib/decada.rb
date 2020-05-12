@@ -18,17 +18,26 @@ class Decada
     rows = [['1930'], ['1930 - 1940'], ['1940 - 1950'], ['1950 - 1960'],
            ['1960 - 1970'], ['1970 - 1980'], ['1980 - 1990'], ['1990 - 2000'],
            ['2000 - 2010']]
+    headers = ['Década']
     nomes.each do |n|
       response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\
-                             "nomes/#{n}?decada"
+                             "nomes/#{n.delete(' ')}?decada"
       response = JSON.parse(response.body, symbolize_names: true)
-      response[0][:res].each_with_index do |r, index|
-        rows[index] << r[:frequencia]
+      if response.empty?
+        puts "\nNome #{n} não encontrado! Verifique a ortografia e as "\
+            "instruções"
+        return if nomes.length == 1
+        
+      else
+        response[0][:res].each_with_index do |r, index|
+          rows[index] << r[:frequencia]
+        end
+        headers << n
       end
     end
-    nomes.insert(0, 'Década')
     table = Terminal::Table.new :title => "Frequência de uso por década",
-                                :headings => nomes, :rows => rows
+                                :headings => headers, :rows => rows
     puts table
+    return 'ok'
   end
 end
