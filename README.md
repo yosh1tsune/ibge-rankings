@@ -9,9 +9,13 @@ fornecidas pelo Instituto.
 ## gems utilizadas
 
 ``` gem 'byebug' ```
+
 ``` gem 'faraday' ```
+
 ``` gem 'rspec' ```
+
 ``` gem 'sqlite3' ```
+
 ``` gem 'terminal-table' ```
 
 ## Iniciando o Projeto
