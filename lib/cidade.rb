@@ -36,11 +36,7 @@ class Cidade
       populacao = percentual_populacao(local[0][0], r[:frequencia])
       rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
     end
-    table = Terminal::Table.new :title => "Ranking Geral: #{local[0][1]}, #{uf}", 
-                                :headings => ['Posição', 'Nome', 'Uso',
-                                              'Percentual na população'],
-                                :rows => rows
-    puts table
+    monta_tabela("Ranking Geral: #{local[0][1]}, #{uf}", rows)
   end
 
   def self.cidade_masculino(local, uf)
@@ -52,11 +48,7 @@ class Cidade
       populacao = percentual_populacao(local[0][0], r[:frequencia])
       rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
     end
-    table = Terminal::Table.new :title => "Ranking Masculino: #{local[0][1]}, #{uf}", 
-                                :headings => ['Posição', 'Nome', 'Uso',
-                                              'Percentual na população'],
-                                :rows => rows
-    puts table
+    monta_tabela("Ranking Masculino: #{local[0][1]}, #{uf}", rows)
   end
 
   def self.cidade_feminino(local, uf)
@@ -68,16 +60,19 @@ class Cidade
       populacao = percentual_populacao(local[0][0], r[:frequencia])
       rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
     end
-    table = Terminal::Table.new :title => "Ranking Feminino: #{local[0][1]}, #{uf}", 
-                                :headings => ['Posição', 'Nome', 'Uso',
-                                              'Percentual na população'],
-                                :rows => rows
-    puts table
+    monta_tabela("Ranking Feminino: #{local[0][1]}, #{uf}", rows)
   end
 
   def self.percentual_populacao(id, frequencia)
     csv = CSV.parse(File.read('./files/populacao_2019.csv'),headers: :first_row)
     populacao = csv.find{ |row| row['Cód.'] == "#{id}"}['População Residente - 2019']
     populacao = (frequencia / populacao.to_f) * 100
+  end
+
+  def self.monta_tabela(ranking, rows)
+    table = Terminal::Table.new :title => ranking, :headings => ['Posição', 
+                                'Nome', 'Uso', 'Percentual na população'],
+                                :rows => rows
+    puts table
   end
 end

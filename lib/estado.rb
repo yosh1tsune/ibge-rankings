@@ -9,7 +9,7 @@ class Estado
   @db = SQLite3::Database.new "test.db"
   
   def self.get_ufs
-    response = @db.execute('SELECT * FROM estados')
+    response = @db.execute('SELECT * FROM estados ORDER BY nome')
     puts "\nUnidades Federativas do Brasil: \n\n"
     response.each do |uf|
       puts "#{uf[1]} " + '-' + " #{uf[2]}"
@@ -36,11 +36,7 @@ class Estado
       populacao = percentual_populacao(uf[0], r[:frequencia])
       rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
     end
-    table = Terminal::Table.new :title => "Ranking Geral: #{uf[2]}", 
-                                :headings => ['Posição', 'Nome', 'Uso',
-                                              'Percentual na população'],
-                                :rows => rows
-    puts table
+    montar_tabela("Ranking Geral: #{uf[2]}", rows)
   end
 
   def self.uf_masc(uf)
@@ -52,11 +48,7 @@ class Estado
       populacao = percentual_populacao(uf[0], r[:frequencia])
       rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
     end
-    table = Terminal::Table.new :title => "Ranking Masculino: #{uf[2]}", 
-                                :headings => ['Posição', 'Nome', 'Uso',
-                                              'Percentual na população'],
-                                :rows => rows
-    puts table
+    montar_tabela("Ranking Masculino: #{uf[2]}", rows)
   end
 
   def self.uf_fem(uf)
@@ -68,16 +60,20 @@ class Estado
       populacao = percentual_populacao(uf[0], r[:frequencia])
       rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
     end
-    table = Terminal::Table.new :title => "Ranking Feminino: #{uf[2]}", 
-                                :headings => ['Posição', 'Nome', 'Uso',
-                                              'Percentual na população'],
-                                :rows => rows
-    puts table
+    montar_tabela("Ranking Feminino: #{uf[2]}", rows)
   end
 
   def self.percentual_populacao(id, frequencia)
     csv = CSV.parse(File.read('./files/populacao_2019.csv'),headers: :first_row)
-    populacao = csv.find{ |row| row['Cód.'] == "#{id}"}['População Residente - 2019']
+    populacao = csv.find{ |row| row['Cód.'] == "#{id}"}['População Residente -'\
+                                                        ' 2019']
     populacao = (frequencia / populacao.to_f) * 100
+  end
+
+  def self.montar_tabela(ranking, rows)
+    table = Terminal::Table.new :title => ranking, :headings => ['Posição', 
+                                'Nome', 'Uso', 'Percentual na população'],
+                                :rows => rows
+    puts table
   end
 end

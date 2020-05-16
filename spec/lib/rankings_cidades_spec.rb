@@ -21,33 +21,33 @@ Escolha uma das seguintes opções:
 
 Unidades Federativas do Brasil: 
 
-Rondônia - RO
 Acre - AC
-Amazonas - AM
-Roraima - RR
-Pará - PA
-Amapá - AP
-Tocantins - TO
-Maranhão - MA
-Piauí - PI
-Ceará - CE
-Rio Grande do Norte - RN
-Paraíba - PB
-Pernambuco - PE
 Alagoas - AL
-Sergipe - SE
+Amapá - AP
+Amazonas - AM
 Bahia - BA
-Minas Gerais - MG
-Espírito Santo - ES
-Rio de Janeiro - RJ
-São Paulo - SP
-Paraná - PR
-Santa Catarina - SC
-Rio Grande do Sul - RS
-Mato Grosso do Sul - MS
-Mato Grosso - MT
-Goiás - GO
+Ceará - CE
 Distrito Federal - DF
+Espírito Santo - ES
+Goiás - GO
+Maranhão - MA
+Mato Grosso - MT
+Mato Grosso do Sul - MS
+Minas Gerais - MG
+Paraná - PR
+Paraíba - PB
+Pará - PA
+Pernambuco - PE
+Piauí - PI
+Rio Grande do Norte - RN
+Rio Grande do Sul - RS
+Rio de Janeiro - RJ
+Rondônia - RO
+Roraima - RR
+Santa Catarina - SC
+Sergipe - SE
+São Paulo - SP
+Tocantins - TO
 
 Digite uma cidade (com acentos) e a sigla de sua UF, separados por virgula (Ex: São Paulo, SP), para ver os rankings ou 'ok' para retornar:
 
@@ -161,33 +161,33 @@ Escolha uma das seguintes opções:
 
 Unidades Federativas do Brasil: 
 
-Rondônia - RO
 Acre - AC
-Amazonas - AM
-Roraima - RR
-Pará - PA
-Amapá - AP
-Tocantins - TO
-Maranhão - MA
-Piauí - PI
-Ceará - CE
-Rio Grande do Norte - RN
-Paraíba - PB
-Pernambuco - PE
 Alagoas - AL
-Sergipe - SE
+Amapá - AP
+Amazonas - AM
 Bahia - BA
-Minas Gerais - MG
-Espírito Santo - ES
-Rio de Janeiro - RJ
-São Paulo - SP
-Paraná - PR
-Santa Catarina - SC
-Rio Grande do Sul - RS
-Mato Grosso do Sul - MS
-Mato Grosso - MT
-Goiás - GO
+Ceará - CE
 Distrito Federal - DF
+Espírito Santo - ES
+Goiás - GO
+Maranhão - MA
+Mato Grosso - MT
+Mato Grosso do Sul - MS
+Minas Gerais - MG
+Paraná - PR
+Paraíba - PB
+Pará - PA
+Pernambuco - PE
+Piauí - PI
+Rio Grande do Norte - RN
+Rio Grande do Sul - RS
+Rio de Janeiro - RJ
+Rondônia - RO
+Roraima - RR
+Santa Catarina - SC
+Sergipe - SE
+São Paulo - SP
+Tocantins - TO
 
 Digite uma cidade (com acentos) e a sigla de sua UF, separados por virgula (Ex: São Paulo, SP), para ver os rankings ou 'ok' para retornar:
 
@@ -228,33 +228,33 @@ Escolha uma das seguintes opções:
 
 Unidades Federativas do Brasil: 
 
-Rondônia - RO
 Acre - AC
-Amazonas - AM
-Roraima - RR
-Pará - PA
-Amapá - AP
-Tocantins - TO
-Maranhão - MA
-Piauí - PI
-Ceará - CE
-Rio Grande do Norte - RN
-Paraíba - PB
-Pernambuco - PE
 Alagoas - AL
-Sergipe - SE
+Amapá - AP
+Amazonas - AM
 Bahia - BA
-Minas Gerais - MG
-Espírito Santo - ES
-Rio de Janeiro - RJ
-São Paulo - SP
-Paraná - PR
-Santa Catarina - SC
-Rio Grande do Sul - RS
-Mato Grosso do Sul - MS
-Mato Grosso - MT
-Goiás - GO
+Ceará - CE
 Distrito Federal - DF
+Espírito Santo - ES
+Goiás - GO
+Maranhão - MA
+Mato Grosso - MT
+Mato Grosso do Sul - MS
+Minas Gerais - MG
+Paraná - PR
+Paraíba - PB
+Pará - PA
+Pernambuco - PE
+Piauí - PI
+Rio Grande do Norte - RN
+Rio Grande do Sul - RS
+Rio de Janeiro - RJ
+Rondônia - RO
+Roraima - RR
+Santa Catarina - SC
+Sergipe - SE
+São Paulo - SP
+Tocantins - TO
 
 Digite uma cidade (com acentos) e a sigla de sua UF, separados por virgula (Ex: São Paulo, SP), para ver os rankings ou 'ok' para retornar:
 
@@ -295,33 +295,33 @@ Escolha uma das seguintes opções:
 
 Unidades Federativas do Brasil: 
 
-Rondônia - RO
 Acre - AC
-Amazonas - AM
-Roraima - RR
-Pará - PA
-Amapá - AP
-Tocantins - TO
-Maranhão - MA
-Piauí - PI
-Ceará - CE
-Rio Grande do Norte - RN
-Paraíba - PB
-Pernambuco - PE
 Alagoas - AL
-Sergipe - SE
+Amapá - AP
+Amazonas - AM
 Bahia - BA
-Minas Gerais - MG
-Espírito Santo - ES
-Rio de Janeiro - RJ
-São Paulo - SP
-Paraná - PR
-Santa Catarina - SC
-Rio Grande do Sul - RS
-Mato Grosso do Sul - MS
-Mato Grosso - MT
-Goiás - GO
+Ceará - CE
 Distrito Federal - DF
+Espírito Santo - ES
+Goiás - GO
+Maranhão - MA
+Mato Grosso - MT
+Mato Grosso do Sul - MS
+Minas Gerais - MG
+Paraná - PR
+Paraíba - PB
+Pará - PA
+Pernambuco - PE
+Piauí - PI
+Rio Grande do Norte - RN
+Rio Grande do Sul - RS
+Rio de Janeiro - RJ
+Rondônia - RO
+Roraima - RR
+Santa Catarina - SC
+Sergipe - SE
+São Paulo - SP
+Tocantins - TO
 
 Digite uma cidade (com acentos) e a sigla de sua UF, separados por virgula (Ex: São Paulo, SP), para ver os rankings ou 'ok' para retornar:
 
