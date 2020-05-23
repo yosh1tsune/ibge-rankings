@@ -24,7 +24,7 @@ Após clonar o repospitório, rode o comando ``` bundle install ```
 
 Para iniciar a aplicação, rode o comando ``` ruby lib/app.rb ```
 
-Na primeira execução, será feita a configuração do banco de todos. Isso levara 
+Na primeira execução, será feita a configuração do banco de dados. Isso levará 
 alguns minutos, e logo após a aplicação estará pronta para uso.
 
 ## Realizando as consultas
@@ -65,7 +65,7 @@ inicial.
 ### Consulta de Nomes por Década
 
 A opção 3 permite a consulta de frequência de utilização de nomes ao longo das
-décadas, partindo de 1930.
+décadas em ambito nacional, partindo de 1930.
 
 É possível consultar um ou mais nomes, sempre separados por vírgula 
 (Ex: Bruno, Felipe).
