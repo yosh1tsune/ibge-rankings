@@ -1,272 +1,47 @@
-require 'estado'
-require 'active_support/core_ext/kernel/reporting'
+require 'estado.rb'
 
 describe 'Rankings estados' do
-  it 'mostra com sucesso os rankings de um estado' do
-    allow($stdin).to receive(:gets).and_return("1", "sp", "4")
+  it 'deve retornar todas as UFs' do
+    ufs = Estado.get_ufs
 
-    expect { load "./lib/app.rb" }.to output("Aguarde enquando o banco de dados é configurado :)
-Tudo pronto! Hora da diversão :D
-
-
-Bem vindo(a) ao buscador de frequência de nomes no Brasil!
-
-Escolha uma das seguintes opções: 
-
-        1 - Rankings por UF
-        2 - Rankings por cidade
-        3 - Frequencia de um nome por década
-        4 - Sair 
-
-
-Unidades Federativas do Brasil: 
-
-Acre - AC
-Alagoas - AL
-Amapá - AP
-Amazonas - AM
-Bahia - BA
-Ceará - CE
-Distrito Federal - DF
-Espírito Santo - ES
-Goiás - GO
-Maranhão - MA
-Mato Grosso - MT
-Mato Grosso do Sul - MS
-Minas Gerais - MG
-Paraná - PR
-Paraíba - PB
-Pará - PA
-Pernambuco - PE
-Piauí - PI
-Rio Grande do Norte - RN
-Rio Grande do Sul - RS
-Rio de Janeiro - RJ
-Rondônia - RO
-Roraima - RR
-Santa Catarina - SC
-Sergipe - SE
-São Paulo - SP
-Tocantins - TO
-
-Digite a sigla de um Estado para ver os rankings ou 'ok' para retornar: 
-
-+---------+-----------+---------+-------------------------+
-|                    Ranking Geral: SP                    |
-+---------+-----------+---------+-------------------------+
-| Posição | Nome      | Uso     | Percentual na população |
-+---------+-----------+---------+-------------------------+
-| 1       | MARIA     | 2143232 | 4.67%                   |
-| 2       | JOSE      | 1118772 | 2.44%                   |
-| 3       | ANA       | 664153  | 1.45%                   |
-| 4       | JOAO      | 610851  | 1.33%                   |
-| 5       | ANTONIO   | 497959  | 1.08%                   |
-| 6       | PAULO     | 333637  | 0.73%                   |
-| 7       | CARLOS    | 328926  | 0.72%                   |
-| 8       | LUCAS     | 282840  | 0.62%                   |
-| 9       | LUIZ      | 270982  | 0.59%                   |
-| 10      | PEDRO     | 264316  | 0.58%                   |
-| 11      | MARCOS    | 258443  | 0.56%                   |
-| 12      | GABRIEL   | 256501  | 0.56%                   |
-| 13      | LUIS      | 246582  | 0.54%                   |
-| 14      | RAFAEL    | 231278  | 0.5%                    |
-| 15      | FRANCISCO | 201111  | 0.44%                   |
-| 16      | MARCELO   | 197445  | 0.43%                   |
-| 17      | BRUNO     | 188035  | 0.41%                   |
-| 18      | FELIPE    | 186363  | 0.41%                   |
-| 19      | GUILHERME | 176046  | 0.38%                   |
-| 20      | RODRIGO   | 173059  | 0.38%                   |
-+---------+-----------+---------+-------------------------+
-+---------+-----------+---------+-------------------------+
-|                  Ranking Masculino: SP                  |
-+---------+-----------+---------+-------------------------+
-| Posição | Nome      | Uso     | Percentual na população |
-+---------+-----------+---------+-------------------------+
-| 1       | JOSE      | 1115060 | 2.43%                   |
-| 2       | JOAO      | 608330  | 1.32%                   |
-| 3       | ANTONIO   | 496524  | 1.08%                   |
-| 4       | PAULO     | 332376  | 0.72%                   |
-| 5       | CARLOS    | 327672  | 0.71%                   |
-| 6       | LUCAS     | 280197  | 0.61%                   |
-| 7       | LUIZ      | 269909  | 0.59%                   |
-| 8       | PEDRO     | 262959  | 0.57%                   |
-| 9       | MARCOS    | 257364  | 0.56%                   |
-| 10      | GABRIEL   | 253754  | 0.55%                   |
-| 11      | LUIS      | 245546  | 0.53%                   |
-| 12      | RAFAEL    | 229331  | 0.5%                    |
-| 13      | FRANCISCO | 200457  | 0.44%                   |
-| 14      | MARCELO   | 196612  | 0.43%                   |
-| 15      | BRUNO     | 186596  | 0.41%                   |
-| 16      | FELIPE    | 184644  | 0.4%                    |
-| 17      | GUILHERME | 174690  | 0.38%                   |
-| 18      | RODRIGO   | 172242  | 0.38%                   |
-| 19      | EDUARDO   | 165321  | 0.36%                   |
-| 20      | GUSTAVO   | 164437  | 0.36%                   |
-+---------+-----------+---------+-------------------------+
-+---------+-----------+---------+-------------------------+
-|                  Ranking Feminino: SP                   |
-+---------+-----------+---------+-------------------------+
-| Posição | Nome      | Uso     | Percentual na população |
-+---------+-----------+---------+-------------------------+
-| 1       | MARIA     | 2136057 | 4.65%                   |
-| 2       | ANA       | 662035  | 1.44%                   |
-| 3       | JULIANA   | 157939  | 0.34%                   |
-| 4       | MARCIA    | 152146  | 0.33%                   |
-| 5       | ADRIANA   | 149268  | 0.33%                   |
-| 6       | APARECIDA | 143645  | 0.31%                   |
-| 7       | FERNANDA  | 140306  | 0.31%                   |
-| 8       | PATRICIA  | 139205  | 0.3%                    |
-| 9       | ALINE     | 131893  | 0.29%                   |
-| 10      | CAMILA    | 131233  | 0.29%                   |
-| 11      | SANDRA    | 131018  | 0.29%                   |
-| 12      | BRUNA     | 129465  | 0.28%                   |
-| 13      | JULIA     | 127506  | 0.28%                   |
-| 14      | LETICIA   | 122960  | 0.27%                   |
-| 15      | BEATRIZ   | 122096  | 0.27%                   |
-| 16      | GABRIELA  | 118669  | 0.26%                   |
-| 17      | JESSICA   | 116920  | 0.25%                   |
-| 18      | AMANDA    | 116617  | 0.25%                   |
-| 19      | LUCIANA   | 112676  | 0.25%                   |
-| 20      | VANESSA   | 110214  | 0.24%                   |
-+---------+-----------+---------+-------------------------+
-
-Escolha uma das seguintes opções: 
-
-        1 - Rankings por UF
-        2 - Rankings por cidade
-        3 - Frequencia de um nome por década
-        4 - Sair 
-
-Adios!
-").to_stdout
+    expect(ufs).to include 'Amapá - AP'
+    expect(ufs).to include 'São Paulo - SP'
   end
 
-  it 'ou pede uma nova sigla caso a inserida seja incorreta' do
-    allow($stdin).to receive(:gets).and_return('1', 'JP', 'ok', '4')
-
-    expect{ load './lib/app.rb'}.to output(
-"Aguarde enquando o banco de dados é configurado :)
-Tudo pronto! Hora da diversão :D
-
-
-Bem vindo(a) ao buscador de frequência de nomes no Brasil!
-
-Escolha uma das seguintes opções: 
-
-        1 - Rankings por UF
-        2 - Rankings por cidade
-        3 - Frequencia de um nome por década
-        4 - Sair 
-
-
-Unidades Federativas do Brasil: 
-
-Acre - AC
-Alagoas - AL
-Amapá - AP
-Amazonas - AM
-Bahia - BA
-Ceará - CE
-Distrito Federal - DF
-Espírito Santo - ES
-Goiás - GO
-Maranhão - MA
-Mato Grosso - MT
-Mato Grosso do Sul - MS
-Minas Gerais - MG
-Paraná - PR
-Paraíba - PB
-Pará - PA
-Pernambuco - PE
-Piauí - PI
-Rio Grande do Norte - RN
-Rio Grande do Sul - RS
-Rio de Janeiro - RJ
-Rondônia - RO
-Roraima - RR
-Santa Catarina - SC
-Sergipe - SE
-São Paulo - SP
-Tocantins - TO
-
-Digite a sigla de um Estado para ver os rankings ou 'ok' para retornar: 
-
-
-UF não encontrada! Insira uma UF válida.
-
-Digite a sigla de um Estado para ver os rankings ou 'ok' para retornar: 
-
-
-Escolha uma das seguintes opções: 
-
-        1 - Rankings por UF
-        2 - Rankings por cidade
-        3 - Frequencia de um nome por década
-        4 - Sair 
-
-Adios!
-").to_stdout
+  xit 'deve retornar todas as informações da UF fornecida' do
+    estado = Estado.new('BA')
+    uf = estado.chama_rankings
+    
+    expect(uf[:id]).to eq 29
+    expect(uf[:nome]).to eq 'Bahia'
+    expect(uf[:sigla]).to eq 'BA'
   end
 
-it 'ou retorna para o inicio sem consultar' do
-  allow($stdin).to receive(:gets).and_return('1', 'ok', '4')
+  xit 'e deve ser fornecida uma UF valida' do
+    estado = Estado.new('XR')
+    uf = estado.chama_rankings
+    
+    expect(uf).to eq "\nUF não encontrada! Insira uma UF válida."
+  end
 
-  expect{ load './lib/app.rb'}.to output(
-"Aguarde enquando o banco de dados é configurado :)
-Tudo pronto! Hora da diversão :D
+  it 'deve mostrar o ranking de nomes geral de uma UF' do
+    estado = Estado.new('SP')
+    tabela = estado.uf_geral
 
+    expect(tabela.title).to eq 'Ranking Geral: SP'
+  end
 
-Bem vindo(a) ao buscador de frequência de nomes no Brasil!
+  it 'deve mostrar o ranking de nomes masculino de uma UF' do
+    estado = Estado.new('SP')
+    tabela = estado.uf_masc
 
-Escolha uma das seguintes opções: 
+    expect(tabela.title).to eq 'Ranking Masculino: SP'
+  end
 
-        1 - Rankings por UF
-        2 - Rankings por cidade
-        3 - Frequencia de um nome por década
-        4 - Sair 
+  it 'deve mostrar o ranking de nomes feminino de uma UF' do
+    estado = Estado.new('SP')
+    tabela = estado.uf_fem
 
-
-Unidades Federativas do Brasil: 
-
-Acre - AC
-Alagoas - AL
-Amapá - AP
-Amazonas - AM
-Bahia - BA
-Ceará - CE
-Distrito Federal - DF
-Espírito Santo - ES
-Goiás - GO
-Maranhão - MA
-Mato Grosso - MT
-Mato Grosso do Sul - MS
-Minas Gerais - MG
-Paraná - PR
-Paraíba - PB
-Pará - PA
-Pernambuco - PE
-Piauí - PI
-Rio Grande do Norte - RN
-Rio Grande do Sul - RS
-Rio de Janeiro - RJ
-Rondônia - RO
-Roraima - RR
-Santa Catarina - SC
-Sergipe - SE
-São Paulo - SP
-Tocantins - TO
-
-Digite a sigla de um Estado para ver os rankings ou 'ok' para retornar: 
-
-
-Escolha uma das seguintes opções: 
-
-        1 - Rankings por UF
-        2 - Rankings por cidade
-        3 - Frequencia de um nome por década
-        4 - Sair 
-
-Adios!
-").to_stdout
+    expect(tabela.title).to eq 'Ranking Feminino: SP'
   end
 end

@@ -6,74 +6,74 @@ require 'sqlite3'
 require 'terminal-table'
 
 class Estado
-  @db = SQLite3::Database.new "test.db"
+  attr_reader :estado
+  
+  def initialize(estado)
+    @estado = estado
+  end
   
   def self.get_ufs
+    @db = SQLite3::Database.new "localidades.db"
+    ufs = Array.new
     response = @db.execute('SELECT * FROM estados ORDER BY nome')
-    puts "\nUnidades Federativas do Brasil: \n\n"
+    ufs << "\nUnidades Federativas do Brasil: \n\n"
     response.each do |uf|
-      puts "#{uf[1]} " + '-' + " #{uf[2]}"
+      ufs << "#{uf[1]} " + '-' + " #{uf[2]}"
     end
-    return response
+    return ufs
   end
 
-  def self.chama_rankings(sigla)
-    uf = @db.execute("SELECT * FROM estados WHERE sigla = '#{sigla}'")
-    return puts "\nUF não encontrada! Insira uma UF válida." if uf.empty?
-
-    uf_geral(uf[0])
-    uf_masc(uf[0])
-    uf_fem(uf[0])
-    return 'ok'
-  end
-
-  def self.uf_geral(uf)
-    rows = []
+  def uf_geral
+    uf = seleciona_uf
     response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\
-                           "nomes/ranking?localidade=#{uf[0]}"
+                           "nomes/ranking?localidade=#{uf[:id]}"
     response = JSON.parse(response.body, symbolize_names: true)
+    table = montar_tabela("Ranking Geral: #{uf[:sigla]}", uf, response)
+  end
+
+  def uf_masc
+    uf = seleciona_uf
+    response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\
+                           "nomes/ranking?localidade=#{uf[:id]}&sexo=M"
+    response = JSON.parse(response.body, symbolize_names: true)
+    table = montar_tabela("Ranking Masculino: #{uf[:sigla]}", uf, response)
+  end
+
+  def uf_fem
+    uf = seleciona_uf
+    response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\
+                           "nomes/ranking?localidade=#{uf[:id]}&sexo=F"
+    response = JSON.parse(response.body, symbolize_names: true)
+    table = montar_tabela("Ranking Feminino: #{uf[:sigla]}", uf, response)
+  end
+
+  private
+
+  def seleciona_uf
+    @db = SQLite3::Database.new "localidades.db"
+    uf = @db.execute("SELECT * FROM estados WHERE sigla = '#{self.estado}'")
+    return "\nUF não encontrada! Insira uma UF válida." if uf.empty?
+    uf = {id: uf[0][0], nome: uf[0][1], sigla: uf[0][2]}
+    return uf
+  end
+
+  def montar_tabela(title, uf, response)
+    rows = []
     response[0][:res].each do |r|
-      populacao = percentual_populacao(uf[0], r[:frequencia])
+      populacao = percentual_populacao(uf[:id], r[:frequencia])
       rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
     end
-    montar_tabela("Ranking Geral: #{uf[2]}", rows)
+    table = Terminal::Table.new :title => title,
+                                :headings => ['Posição', 'Nome', 'Uso', 
+                                               'Percentual na população'],
+                                :rows => rows
+    return table
   end
 
-  def self.uf_masc(uf)
-    rows = []
-    response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\
-                           "nomes/ranking?localidade=#{uf[0]}&sexo=M"
-    response = JSON.parse(response.body, symbolize_names: true)
-    response[0][:res].each do |r|
-      populacao = percentual_populacao(uf[0], r[:frequencia])
-      rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
-    end
-    montar_tabela("Ranking Masculino: #{uf[2]}", rows)
-  end
-
-  def self.uf_fem(uf)
-    rows = []
-    response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\
-                           "nomes/ranking?localidade=#{uf[0]}&sexo=F"
-    response = JSON.parse(response.body, symbolize_names: true)
-    response[0][:res].each do |r|
-      populacao = percentual_populacao(uf[0], r[:frequencia])
-      rows << [r[:ranking], r[:nome], r[:frequencia], "#{populacao.round(2)}%"]
-    end
-    montar_tabela("Ranking Feminino: #{uf[2]}", rows)
-  end
-
-  def self.percentual_populacao(id, frequencia)
+  def percentual_populacao(id, frequencia)
     csv = CSV.parse(File.read('./files/populacao_2019.csv'),headers: :first_row)
     populacao = csv.find{ |row| row['Cód.'] == "#{id}"}['População Residente -'\
                                                         ' 2019']
     populacao = (frequencia / populacao.to_f) * 100
-  end
-
-  def self.montar_tabela(ranking, rows)
-    table = Terminal::Table.new :title => ranking, :headings => ['Posição', 
-                                'Nome', 'Uso', 'Percentual na população'],
-                                :rows => rows
-    puts table
   end
 end

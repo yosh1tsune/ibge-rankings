@@ -1,5 +1,5 @@
 def database_setup
-  db = SQLite3::Database.new "test.db"
+  db = SQLite3::Database.new "localidades.db"
   db.execute <<-SQL
     CREATE TABLE IF NOT EXISTS estados(
       id INT NOT NULL UNIQUE,

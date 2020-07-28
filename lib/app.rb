@@ -16,18 +16,26 @@ while input != '4' do
         3 - Frequencia de um nome por década
         4 - Sair \n\n"
   input = $stdin.gets.chomp
+
   if input == '1'
-    Estado.get_ufs
+    puts Estado.get_ufs
     uf = nil
     while uf != 'ok'
       puts "\nDigite a sigla de um Estado para ver os rankings ou 'ok' "\
            "para retornar: \n\n"
       uf = $stdin.gets.chomp.upcase
       break if uf == 'OK'
-      uf = Estado.chama_rankings(uf)
+      estado = Estado.new(uf)
+      geral = estado.uf_geral
+      masculino = estado.uf_masc
+      feminino = estado.uf_fem
+      puts geral
+      puts masculino
+      puts feminino
     end
   elsif input == '2'
-    response = Estado.get_ufs
+    estado = Estado.new(input)
+    puts estado.get_ufs    
     local = nil
     while local != 'ok'
       puts "\nDigite uma cidade (com acentos) e a sigla de sua UF, separados "\
@@ -51,4 +59,4 @@ while input != '4' do
   end
 end
 
-puts 'Adios!'
+puts "\nAdios!"

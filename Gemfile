@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'activesupport'
+ruby '2.6.5'
+
 gem 'byebug'
 gem 'faraday'
 gem 'rspec'
