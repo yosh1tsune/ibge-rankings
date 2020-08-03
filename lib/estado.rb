@@ -12,7 +12,7 @@ class Estado
     @estado = estado
   end
   
-  def self.get_ufs
+  def self.all
     @db = SQLite3::Database.new "localidades.db"
     ufs = Array.new
     response = @db.execute('SELECT * FROM estados ORDER BY nome')
@@ -47,12 +47,19 @@ class Estado
     table = montar_tabela("Ranking Feminino: #{uf[:sigla]}", uf, response)
   end
 
+  def imprime_rankings
+    puts uf_geral
+    puts uf_fem
+    puts uf_masc
+  end
+
   private
 
   def seleciona_uf
     @db = SQLite3::Database.new "localidades.db"
     uf = @db.execute("SELECT * FROM estados WHERE sigla = '#{self.estado}'")
     return "\nUF não encontrada! Insira uma UF válida." if uf.empty?
+    
     uf = {id: uf[0][0], nome: uf[0][1], sigla: uf[0][2]}
     return uf
   end

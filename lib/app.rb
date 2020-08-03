@@ -18,7 +18,7 @@ while input != '4' do
   input = $stdin.gets.chomp
 
   if input == '1'
-    puts Estado.get_ufs
+    puts Estado.all
     uf = nil
     while uf != 'ok'
       puts "\nDigite a sigla de um Estado para ver os rankings ou 'ok' "\
@@ -26,16 +26,10 @@ while input != '4' do
       uf = $stdin.gets.chomp.upcase
       break if uf == 'OK'
       estado = Estado.new(uf)
-      geral = estado.uf_geral
-      masculino = estado.uf_masc
-      feminino = estado.uf_fem
-      puts geral
-      puts masculino
-      puts feminino
+      estado.imprime_rankings
     end
   elsif input == '2'
-    estado = Estado.new(input)
-    puts estado.get_ufs    
+    puts Estado.all 
     local = nil
     while local != 'ok'
       puts "\nDigite uma cidade (com acentos) e a sigla de sua UF, separados "\
@@ -43,7 +37,8 @@ while input != '4' do
            "ou 'ok' para retornar:\n\n"
       local = $stdin.gets.chomp.upcase
       break if local == 'OK'
-      local = Cidade.get_cidade(local)
+      cidade = Cidade.new(local)
+      cidade.imprimeRankings
     end
   elsif input == '3'
     nomes = nil
