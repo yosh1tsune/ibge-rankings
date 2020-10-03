@@ -31,7 +31,7 @@ describe 'Cidades' do
 
   context '.cidade_geral' do
     it 'deve mostrar o ranking de nomes geral de uma UF' do
-      json = File.read("spec/support/api.json")    
+      json = File.read("spec/support/localidade.json")    
       url = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking?'\
             'localidade=3550308'
       response = double('faraday_response', body: json, status: 200)
@@ -46,7 +46,7 @@ describe 'Cidades' do
   
   context '.cidade_masc' do
     it 'deve mostrar o ranking de nomes masculino de uma UF' do
-      json = File.read("spec/support/api.json")    
+      json = File.read("spec/support/localidade.json")    
       url = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking?'\
             'localidade=3550308&sexo=M'
       response = double('faraday_response', body: json, status: 200)
@@ -61,7 +61,7 @@ describe 'Cidades' do
 
   context '.cidade_fem' do
     it 'deve mostrar o ranking de nomes feminino de uma UF' do
-      json = File.read("spec/support/api.json")    
+      json = File.read("spec/support/localidade.json")    
       url = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking?'\
             'localidade=3550308&sexo=F'
       response = double('faraday_response', body: json, status: 200)

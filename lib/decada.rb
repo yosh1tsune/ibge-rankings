@@ -4,40 +4,56 @@ require 'json'
 require 'terminal-table'
 
 class Decada
-  def self.get_nomes(nomes)
+  attr_reader :nomes
+
+  def initialize(nomes)
+    @nomes = formata_nomes(nomes)
+  end
+
+  def nomes_por_decada
+    erros = []
+    response = Faraday.new
+    self.nomes.each do |n|
+      response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\
+                             "nomes/#{n.delete(' ')}?decada"
+      response = JSON.parse(response.body, symbolize_names: true)
+      erros << "\nNome #{n} não encontrado! Verifique a ortografia e as "\
+               "instruções" if response.empty?
+    end
+    return erros if !erros.empty?
+
+    monta_tabela(self.nomes, response)
+  end
+
+  private
+
+  def formata_nomes(nomes)
     nomes = nomes.split(',')
     i = 0
     while i < nomes.length 
       nomes[i] = nomes[i].rstrip.lstrip
       i += 1
     end
-    nomes_por_decada(nomes)
+    return nomes
   end
 
-  def self.nomes_por_decada(nomes)
+  def monta_tabela(nomes, response)
     rows = [['1930'], ['1930 - 1940'], ['1940 - 1950'], ['1950 - 1960'],
            ['1960 - 1970'], ['1970 - 1980'], ['1980 - 1990'], ['1990 - 2000'],
            ['2000 - 2010']]
+    title = ''
     headers = ['Década']
     nomes.each do |n|
-      response = Faraday.get "https://servicodados.ibge.gov.br/api/v2/censos/"\
-                             "nomes/#{n.delete(' ')}?decada"
-      response = JSON.parse(response.body, symbolize_names: true)
-      if response.empty?
-        puts "\nNome #{n} não encontrado! Verifique a ortografia e as "\
-            "instruções"
-        return if nomes.length == 1
-        
-      else
-        response[0][:res].each_with_index do |r, index|
-          rows[index] << r[:frequencia]
+      response[0][:res].each do |r|
+        rows.each do |row|
+          row << r[:frequencia] if row == r[:periodo]
         end
-        headers << n
       end
+      title == '' ? title = n : title = "#{title}, " + n
+      headers << n
     end
-    table = Terminal::Table.new :title => "Frequência de uso por década",
+    table = Terminal::Table.new :title => "Frequência de uso por década: #{title}",
                                 :headings => headers, :rows => rows
-    puts table
-    return 'ok'
+    return table
   end
 end
