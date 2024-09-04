@@ -5,8 +5,6 @@ require_relative 'database_setup.rb'
 
 input = nil
 
-database_setup
-
 puts "\n\nBem vindo(a) ao buscador de frequência de nomes no Brasil!"
 
 while input != '4' do
@@ -18,18 +16,18 @@ while input != '4' do
   input = $stdin.gets.chomp
 
   if input == '1'
-    puts Estado.all
+    Estado.all.map(&:print)
     uf = nil
     while uf != 'ok'
       puts "\nDigite a sigla de um Estado para ver os rankings ou 'ok' "\
            "para retornar: \n\n"
       uf = $stdin.gets.chomp.upcase
       break if uf == 'OK'
-      estado = Estado.new(uf)
+      estado = Estado.find(uf)
       estado.imprime_rankings
     end
   elsif input == '2'
-    puts Estado.all 
+    Estado.all.map(&:print)
     local = nil
     while local != 'ok'
       puts "\nDigite uma cidade (com acentos) e a sigla de sua UF, separados "\
