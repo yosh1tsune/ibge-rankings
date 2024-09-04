@@ -12,7 +12,7 @@ class Estado
   end
 
   def self.find(acronym)
-    all.select {|state| state.acronym == acronym }.first
+    all.select { |state| state.acronym == acronym }.first
   end
 
   def initialize(id:, name:, acronym:)

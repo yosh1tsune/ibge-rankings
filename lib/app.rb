@@ -35,7 +35,7 @@ while input != '4' do
            "ou 'ok' para retornar:\n\n"
       local = $stdin.gets.chomp.upcase
       break if local == 'OK'
-      cidade = Cidade.new(local)
+      cidade = Cidade.find(local)
       cidade.imprime_rankings
     end
   elsif input == '3'
