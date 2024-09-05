@@ -3,7 +3,7 @@
 Esta aplicação Ruby apresenta dados sobre os nomes mais utilizados no Brasil
 segundo o Censo do IBGE de 2010, consumindo dados das APIs de
 [Localidades](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1)
-e [Nomes](https://servicodados.ibge.gov.br/api/docs/censos/nomes?versao=2)
+e [Nomes](https://servicodados.ibge.gov.br/api/docs/nomes?versao=2)
 fornecidas pelo Instituto.
 
 ## gems utilizadas

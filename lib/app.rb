@@ -1,7 +1,7 @@
-require_relative 'estado.rb'
+require_relative 'models/state.rb'
 require_relative 'cidade.rb'
 require_relative 'decada.rb'
-require_relative 'database_setup.rb'
+require_relative 'services/rankings/state_rankings_service.rb'
 
 input = nil
 
@@ -16,25 +16,24 @@ while input != '4' do
   input = $stdin.gets.chomp
 
   if input == '1'
-    Estado.all.map(&:print)
+    State.all.map(&:print)
     uf = nil
     while uf != 'ok'
-      puts "\nDigite a sigla de um Estado para ver os rankings ou 'ok' "\
-           "para retornar: \n\n"
+      puts "\nDigite a sigla de um Estado para ver os rankings ou 'ok' para retornar: \n\n"
       uf = $stdin.gets.chomp.upcase
       break if uf == 'OK'
-      estado = Estado.find(uf)
-      estado.imprime_rankings
+
+      Rankings::StateRankingsService.new(state_acronym: uf).execute
     end
   elsif input == '2'
-    Estado.all.map(&:print)
+    State.all.map(&:print)
     local = nil
     while local != 'ok'
       puts "\nDigite uma cidade (com acentos) e a sigla de sua UF, separados "\
-           "por virgula (Ex: São Paulo, SP), para ver os rankings "\
-           "ou 'ok' para retornar:\n\n"
+           "por virgula (Ex: São Paulo, SP), para ver os rankings ou 'ok' para retornar:\n\n"
       local = $stdin.gets.chomp.upcase
       break if local == 'OK'
+
       cidade = Cidade.find(local)
       cidade.imprime_rankings
     end
@@ -47,6 +46,7 @@ while input != '4' do
           "frequência de uso por década ou 'ok' para retornar: \n\n"
       nomes = $stdin.gets.chomp.upcase
       break if nomes == 'OK'
+
       nomes = Decada.new(nomes)
       puts nomes.nomes_por_decada
     end
