@@ -1,4 +1,3 @@
-require 'byebug'
 require 'faraday'
 require 'json'
 require 'terminal-table'
@@ -20,7 +19,6 @@ class Decada
       dados << JSON.parse(response.body, symbolize_names: true)
       erros << "\nNome #{n} não encontrado! Verifique a ortografia e as "\
                "instruções" if dados.empty?
-      
     end
     return erros if !erros.empty?
 
@@ -32,7 +30,7 @@ class Decada
   def formata_nomes(nomes)
     nomes = nomes.split(',')
     i = 0
-    while i < nomes.length 
+    while i < nomes.length
       nomes[i] = nomes[i].rstrip.lstrip
       i += 1
     end
@@ -50,7 +48,7 @@ class Decada
         rows.each do |row|
           row << r[:frequencia] if row.include?(r[:periodo])
         end
-      end	
+      end
       title == '' ? title = n : title = "#{title}, " + n
       headers << n
     end

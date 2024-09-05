@@ -1,7 +1,8 @@
 require_relative 'models/state.rb'
-require_relative 'cidade.rb'
+require_relative 'models/city.rb'
 require_relative 'decada.rb'
 require_relative 'services/rankings/state_rankings_service.rb'
+require_relative 'services/rankings/city_rankings_service.rb'
 
 input = nil
 
@@ -34,8 +35,7 @@ while input != '4' do
       local = $stdin.gets.chomp.upcase
       break if local == 'OK'
 
-      cidade = Cidade.find(local)
-      cidade.imprime_rankings
+      Rankings::CityRankingsService.new(local: local).execute
     end
   elsif input == '3'
     nomes = nil

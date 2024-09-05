@@ -2,7 +2,7 @@ require 'singleton'
 require 'faraday'
 require 'json'
 require_relative 'state_singleton.rb'
-require_relative '../../lib/cidade.rb'
+require_relative '../../lib/models/city.rb'
 
 class CitySingleton
   include Singleton
@@ -13,7 +13,7 @@ class CitySingleton
 
   def cities
     @cities ||= cities_api.flatten.map do |city|
-      Cidade.new(id: city[:id], name: city[:nome], state_acronym: city[:microrregiao][:mesorregiao][:UF][:sigla])
+      City.new(id: city[:id], name: city[:nome], state_acronym: city[:microrregiao][:mesorregiao][:UF][:sigla])
     end
   end
 

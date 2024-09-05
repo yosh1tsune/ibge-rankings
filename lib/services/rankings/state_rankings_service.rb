@@ -1,3 +1,5 @@
+require_relative '../../services/api/names_ranking_service.rb'
+
 # Rankings::StateRankingsService
 module Rankings
   class StateRankingsService
@@ -21,12 +23,12 @@ module Rankings
       ].map { |data| table(data) }
     end
 
-    def table(data)
-      puts Tables::LocalityTableService.new(title: data[:title], data: response(data[:options])).execute
-    end
-
     def state
       @state ||= State.find(state_acronym)
+    end
+
+    def table(data)
+      puts Tables::LocalityTableService.new(title: data[:title], data: response(data[:options])).execute
     end
 
     def response(options = nil)
