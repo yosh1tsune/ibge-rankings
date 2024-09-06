@@ -1,3 +1,5 @@
+require 'csv'
+
 # Calculators::PopulationPercentageCalculator
 module Calculators
   class PopulationPercentageCalculator

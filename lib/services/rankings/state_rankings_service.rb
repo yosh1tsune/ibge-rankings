@@ -1,4 +1,5 @@
-require_relative '../../services/api/names_ranking_service.rb'
+require_relative '../api/names_request_service.rb'
+require_relative '../tables/locality_table_service.rb'
 
 # Rankings::StateRankingsService
 module Rankings
@@ -32,7 +33,7 @@ module Rankings
     end
 
     def response(options = nil)
-      Api::NamesRankingService.new(locality_id: state.id, options: options).execute
+      API::NamesRequestService.new(locality_id: state.id, options: options).execute
     end
   end
 end

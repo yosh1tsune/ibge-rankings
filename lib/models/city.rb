@@ -1,5 +1,3 @@
-require 'csv'
-require 'terminal-table'
 require_relative '../../config/initializers/city_singleton.rb'
 
 class City

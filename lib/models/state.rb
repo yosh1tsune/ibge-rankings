@@ -1,4 +1,4 @@
-require_relative '../services/tables/locality_table_service.rb'
+require_relative '../../config/initializers/state_singleton.rb'
 
 class State
   attr_reader :id, :name, :acronym

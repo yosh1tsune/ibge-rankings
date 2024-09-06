@@ -1,8 +1,8 @@
 require 'faraday'
 require 'json'
 
-module Api
-  class NamesRankingService
+module API
+  class NamesRequestService
     attr_reader :locality_id, :options
 
     ENDPOINT = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking/'

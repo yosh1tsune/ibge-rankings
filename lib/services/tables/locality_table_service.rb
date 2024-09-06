@@ -1,6 +1,5 @@
-require 'faraday'
-require 'json'
-require_relative '../../services/calculators/population_percentage_calculator.rb'
+require 'terminal-table'
+require_relative '../calculators/population_percentage_calculator.rb'
 
 # Tables::LocalityTableService
 module Tables
