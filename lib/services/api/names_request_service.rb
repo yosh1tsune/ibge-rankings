@@ -1,11 +1,12 @@
 require 'faraday'
 require 'json'
 
+# API::NamesRequestService
 module API
   class NamesRequestService
     attr_reader :locality_id, :options
 
-    ENDPOINT = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking/'
+    ENDPOINT = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/'
 
     def initialize(locality_id:, options: nil)
       @locality_id = locality_id
@@ -18,9 +19,6 @@ module API
 
     private
 
-    def response
-      @response = Faraday.get("#{ENDPOINT}?localidade=#{locality_id}&#{options}")
-      JSON.parse(@response.body, symbolize_names: true)
-    end
+    def response; end
   end
 end
