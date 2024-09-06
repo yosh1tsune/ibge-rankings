@@ -1,7 +1,7 @@
 require_relative 'models/state.rb'
 require_relative 'models/city.rb'
-require_relative 'decada.rb'
 require_relative 'services/rankings/state_rankings_service.rb'
+require_relative 'services/rankings/names_by_decade_service.rb'
 require_relative 'services/rankings/city_rankings_service.rb'
 
 input = nil
@@ -47,8 +47,7 @@ while input != '4' do
       nomes = $stdin.gets.chomp.upcase
       break if nomes == 'OK'
 
-      nomes = Decada.new(nomes)
-      puts nomes.nomes_por_decada
+      puts Rankings::NamesByDecadeService.new(nomes).execute
     end
   end
 end
