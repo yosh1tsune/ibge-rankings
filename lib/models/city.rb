@@ -1,4 +1,4 @@
-require_relative '../../config/initializers/cities_singleton.rb'
+require_relative 'cities_singleton.rb'
 
 class City
   attr_reader :id, :name, :state_acronym

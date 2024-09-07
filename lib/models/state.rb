@@ -1,4 +1,4 @@
-require_relative '../../config/initializers/states_singleton.rb'
+require_relative 'states_singleton.rb'
 
 class State
   attr_reader :id, :name, :acronym
