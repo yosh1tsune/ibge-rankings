@@ -1,7 +1,7 @@
 require 'singleton'
 require 'faraday'
 require 'json'
-require_relative 'state_singleton.rb'
+require_relative 'states_singleton.rb'
 require_relative '../../lib/models/city.rb'
 
 class CitiesSingleton
@@ -20,7 +20,7 @@ class CitiesSingleton
   private
 
   def cities_api
-    @cities_response ||= StateSingleton.instance.states.map do |state|
+    @cities_response ||= StatesSingleton.instance.states.map do |state|
       response = Faraday.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/#{state.id}/municipios")
       JSON.parse(response.body, symbolize_names: true)
     end

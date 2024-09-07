@@ -1,10 +1,10 @@
-require_relative '../../config/initializers/state_singleton.rb'
+require_relative '../../config/initializers/states_singleton.rb'
 
 class State
   attr_reader :id, :name, :acronym
 
   def self.all
-    StateSingleton.instance.states
+    StatesSingleton.instance.states
   end
 
   def self.find(acronym)

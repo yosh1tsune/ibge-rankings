@@ -3,7 +3,7 @@ require 'faraday'
 require 'json'
 require_relative '../../lib/models/state.rb'
 
-class StateSingleton
+class StatesSingleton
   include Singleton
 
   def initialize
