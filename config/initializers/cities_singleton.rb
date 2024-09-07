@@ -4,7 +4,7 @@ require 'json'
 require_relative 'state_singleton.rb'
 require_relative '../../lib/models/city.rb'
 
-class CitySingleton
+class CitiesSingleton
   include Singleton
 
   def initialize
