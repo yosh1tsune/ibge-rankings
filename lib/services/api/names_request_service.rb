@@ -4,7 +4,7 @@ require 'json'
 # API::NamesRequestService
 module API
   class NamesRequestService
-    ENDPOINT = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes/'
+    ENDPOINT = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes'
 
     def execute
       response

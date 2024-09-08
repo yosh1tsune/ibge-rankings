@@ -33,7 +33,7 @@ module Rankings
     end
 
     def response(options = nil)
-      API::NamesByLocalityRequestService.new(locality_id: state.id, options: options).execute
+      API::NamesByLocalityRequestService.new(locality: state, options: options).execute
     end
   end
 end
