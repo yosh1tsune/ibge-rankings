@@ -24,7 +24,7 @@ while input != '4' do
       uf = $stdin.gets.chomp.upcase
       break if uf == 'OK'
 
-      Rankings::StateRankingsService.new(state_acronym: uf).execute
+      puts Rankings::StateRankingsService.new(state_acronym: uf).execute
     end
   elsif input == '2'
     State.all.map(&:print)
@@ -35,19 +35,19 @@ while input != '4' do
       local = $stdin.gets.chomp.upcase
       break if local == 'OK'
 
-      Rankings::CityRankingsService.new(local: local).execute
+      puts Rankings::CityRankingsService.new(local: local).execute
     end
   elsif input == '3'
-    nomes = nil
-    while nomes != 'ok'
+    names = nil
+    while names != 'ok'
       puts "\nA base de dados do IBGE não leva em conta nomes compostos "\
           "(Ex: João Carlos), utilize apenas o primeiro nome.\n "\
           "Digite um ou mais nomes, separados por vírgula, para ver sua "\
           "frequência de uso por década ou 'ok' para retornar: \n\n"
-      nomes = $stdin.gets.chomp.upcase
-      break if nomes == 'OK'
+      names = $stdin.gets.chomp.upcase
+      break if names == 'OK'
 
-      puts Rankings::NamesByDecadeService.new(nomes).execute
+      puts Rankings::NamesByDecadeService.new(names: names).execute
     end
   end
 end

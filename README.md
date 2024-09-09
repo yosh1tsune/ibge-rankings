@@ -8,17 +8,17 @@ fornecidas pelo Instituto.
 
 ## gems utilizadas
 
-``` gem 'byebug' ```
+``` gem faraday ```
 
-``` gem 'faraday' ```
+``` gem rspec ```
 
-``` gem 'rspec' ```
+``` gem vcr ```
 
-``` gem 'terminal-table' ```
+``` gem terminal-table ```
 
 ## Iniciando o Projeto
 
-Após clonar o repospitório, rode o comando ``` bundle install ```
+Após clonar o repositório, rode o comando ``` bundle install ```
 
 Para iniciar a aplicação, rode o comando ``` ruby lib/app.rb ```
 
@@ -28,7 +28,7 @@ alguns minutos, e logo após a aplicação estará pronta para uso.
 ## Realizando as consultas
 
 O primeiro menu da aplicação mostrará quatro opções de interação, acesse opções
-digitando o indíce numérico da desejada.
+digitando o indice numérico da desejada.
 
 ### Consulta de Rankings das Unidades Federativas
 
@@ -63,7 +63,7 @@ inicial.
 ### Consulta de Nomes por Década
 
 A opção 3 permite a consulta de frequência de utilização de nomes ao longo das
-décadas em ambito nacional, partindo de 1930.
+décadas em âmbito nacional, partindo de 1930.
 
 É possível consultar um ou mais nomes, sempre separados por vírgula
 (Ex: Bruno, Felipe).

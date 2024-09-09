@@ -3,10 +3,10 @@ require 'csv'
 # Calculators::PopulationPercentageCalculator
 module Calculators
   class PopulationPercentageCalculator
-    attr_reader :id, :frequency
+    attr_reader :locality_id, :frequency
 
-    def initialize(id:, frequency:)
-      @id = id
+    def initialize(locality_id:, frequency:)
+      @locality_id = locality_id
       @frequency = frequency
     end
 
@@ -18,7 +18,7 @@ module Calculators
 
     def population
       csv = CSV.parse(File.read('./spec/support/populacao_2019.csv'), headers: :first_row)
-      csv.find{ |row| row['Cód.'] == "#{id}"}['População Residente - 2019']
+      csv.find{ |row| row['Cód.'] == "#{locality_id}"}['População Residente - 2019']
     end
   end
 end

@@ -4,6 +4,10 @@ require_relative '../lib/models/city'
 require_relative '../lib/models/state'
 require_relative '../lib/services/api/names_by_decade_request_service'
 require_relative '../lib/services/api/names_by_locality_request_service'
+require_relative '../lib/services/calculators/population_percentage_calculator'
+require_relative '../lib/services/rankings/city_rankings_service'
+require_relative '../lib/services/rankings/names_by_decade_service'
+require_relative '../lib/services/rankings/state_rankings_service'
 
 RSpec.configure do |config|
   VCR.configure do |config|

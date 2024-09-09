@@ -29,7 +29,7 @@ module Rankings
     end
 
     def table(data)
-      puts Tables::LocalityTableService.new(title: data[:title], data: response(data[:options])).execute
+      Tables::LocalityTableService.new(title: data[:title], data: response(data[:options])).execute
     end
 
     def response(options = nil)

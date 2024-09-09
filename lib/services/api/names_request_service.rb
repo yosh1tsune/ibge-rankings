@@ -12,6 +12,8 @@ module API
 
     private
 
-    def response; end
+    def response
+      raise NotImplementedError.new("##{__method__.to_s} has to be implemented by children classes")
+    end
   end
 end

@@ -9,12 +9,12 @@ module Rankings
   class NamesByDecadeService
     attr_reader :names
 
-    def initialize(names)
+    def initialize(names:)
       @names = names.gsub(',', '|').gsub(' ', '')
     end
 
     def execute
-      puts Tables::DecadesTableService.new(data: response).execute
+      Tables::DecadesTableService.new(data: response).execute
     end
 
     private

@@ -31,7 +31,7 @@ module Tables
     end
 
     def population_percentage(id, frequency)
-      Calculators::PopulationPercentageCalculator.new(id: id, frequency: frequency).execute
+      Calculators::PopulationPercentageCalculator.new(locality_id: id, frequency: frequency).execute
     end
   end
 end
