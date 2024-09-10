@@ -1,0 +1,42 @@
+Bem vindo(a) ao buscador de frequência de nomes no Brasil!
+
+Escolha uma das seguintes opções:
+
+      1 - Rankings por UF
+      2 - Rankings por cidade
+      3 - Frequencia de um nome por década
+      4 - Sair
+
+
+A base de dados do IBGE não leva em conta nomes compostos (Ex: João Carlos), utilize apenas o primeiro nome.
+Digite um ou mais nomes, separados por vírgula, para ver sua frequência de uso por década ou 'ok' para retornar:
+
++--------------+-------------+-------------+
+| Frequência de uso por década: JOAO, JOSE |
++--------------+-------------+-------------+
+| Década       | JOAO        | JOSE        |
++--------------+-------------+-------------+
+| 1930[        | 60155       | 118121      |
+| [1930,1940[  | 141772      | 311202      |
+| [1940,1950[  | 256001      | 648754      |
+| [1950,1960[  | 396438      | 1082782     |
+| [1960,1970[  | 429148      | 1242231     |
+| [1970,1980[  | 279975      | 942212      |
+| [1980,1990[  | 273960      | 661123      |
+| [1990,2000[  | 352552      | 431536      |
+| [2000,2010[  | 794118      | 316568      |
++--------------+-------------+-------------+
+
+A base de dados do IBGE não leva em conta nomes compostos (Ex: João Carlos), utilize apenas o primeiro nome.
+Digite um ou mais nomes, separados por vírgula, para ver sua frequência de uso por década ou 'ok' para retornar:
+
+
+Escolha uma das seguintes opções:
+
+      1 - Rankings por UF
+      2 - Rankings por cidade
+      3 - Frequencia de um nome por década
+      4 - Sair
+
+
+Adios!

@@ -1,9 +1,9 @@
 require 'singleton'
 require 'faraday'
 require 'json'
-require_relative '../../lib/estado.rb'
+require_relative '../../lib/models/state.rb'
 
-class StateSingleton
+class StatesSingleton
   include Singleton
 
   def initialize
@@ -12,7 +12,7 @@ class StateSingleton
 
   def states
     @states ||= states_api.map do |state|
-      Estado.new(id: state[:id], name: state[:nome], acronym: state[:sigla])
+      State.new(id: state[:id], name: state[:nome], acronym: state[:sigla])
     end
   end
 

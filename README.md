@@ -3,32 +3,37 @@
 Esta aplicação Ruby apresenta dados sobre os nomes mais utilizados no Brasil
 segundo o Censo do IBGE de 2010, consumindo dados das APIs de
 [Localidades](https://servicodados.ibge.gov.br/api/docs/localidades?versao=1)
-e [Nomes](https://servicodados.ibge.gov.br/api/docs/censos/nomes?versao=2)
+e [Nomes](https://servicodados.ibge.gov.br/api/docs/nomes?versao=2)
 fornecidas pelo Instituto.
 
 ## gems utilizadas
 
-``` gem 'byebug' ```
+``` gem faraday ```
 
-``` gem 'faraday' ```
+``` gem rspec ```
 
-``` gem 'rspec' ```
+``` gem vcr ```
 
-``` gem 'terminal-table' ```
+``` gem terminal-table ```
 
 ## Iniciando o Projeto
 
-Após clonar o repospitório, rode o comando ``` bundle install ```
+Após clonar o repositório, rode o seguinte comando para instalar as dependências:
 
-Para iniciar a aplicação, rode o comando ``` ruby lib/app.rb ```
+```
+bundle install
+```
 
-Na primeira execução, será feita a configuração do banco de dados. Isso levará
-alguns minutos, e logo após a aplicação estará pronta para uso.
+e o seguinte para iniciar a aplicação:
+
+```
+ruby -r './lib/app.rb'  -e 'App.new.execute'
+```
 
 ## Realizando as consultas
 
 O primeiro menu da aplicação mostrará quatro opções de interação, acesse opções
-digitando o indíce numérico da desejada.
+digitando o indice numérico da desejada.
 
 ### Consulta de Rankings das Unidades Federativas
 
@@ -63,7 +68,7 @@ inicial.
 ### Consulta de Nomes por Década
 
 A opção 3 permite a consulta de frequência de utilização de nomes ao longo das
-décadas em ambito nacional, partindo de 1930.
+décadas em âmbito nacional, partindo de 1930.
 
 É possível consultar um ou mais nomes, sempre separados por vírgula
 (Ex: Bruno, Felipe).

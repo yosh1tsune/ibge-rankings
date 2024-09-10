@@ -15,4 +15,4 @@ RUN gem update --system
 
 RUN bundle install
 
-CMD ["ruby", "lib/app.rb"]
+ENTRYPOINT ["ruby", "lib/app.rb"]
