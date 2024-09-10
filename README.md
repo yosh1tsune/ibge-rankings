@@ -18,12 +18,17 @@ fornecidas pelo Instituto.
 
 ## Iniciando o Projeto
 
-Após clonar o repositório, rode o comando ``` bundle install ```
+Após clonar o repositório, rode o seguinte comando para instalar as dependências:
 
-Para iniciar a aplicação, rode o comando ``` ruby lib/app.rb ```
+```
+bundle install
+```
 
-Na primeira execução, será feita a configuração do banco de dados. Isso levará
-alguns minutos, e logo após a aplicação estará pronta para uso.
+e o seguinte para iniciar a aplicação:
+
+```
+ruby -r './lib/app.rb'  -e 'App.new.execute'
+```
 
 ## Realizando as consultas
 

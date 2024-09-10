@@ -1,5 +1,6 @@
 require 'vcr'
 
+require_relative '../lib/app'
 require_relative '../lib/models/city'
 require_relative '../lib/models/state'
 require_relative '../lib/services/api/names_by_decade_request_service'
