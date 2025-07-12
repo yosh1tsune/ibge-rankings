@@ -11,11 +11,6 @@ module API
 
     private
 
-    def response
-      data = Faraday.get(url)
-      JSON.parse(data.body, symbolize_names: true)
-    end
-
     def url
       URI.parse(URI::Parser.new.escape("#{ENDPOINT}/#{names}?decada"))
     end

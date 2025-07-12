@@ -12,9 +12,8 @@ module API
 
     private
 
-    def response
-      @response = Faraday.get("#{ENDPOINT}/ranking/?localidade=#{locality.id}&#{options}")
-      JSON.parse(@response.body, symbolize_names: true)
+    def url
+      URI.parse(URI::Parser.new.escape("#{ENDPOINT}/ranking/?localidade=#{locality.id}&#{options}"))
     end
   end
 end

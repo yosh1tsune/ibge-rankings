@@ -13,7 +13,8 @@ module API
     private
 
     def response
-      raise NotImplementedError.new("##{__method__.to_s} has to be implemented by children classes")
+      data = Faraday.get(url)
+      JSON.parse(data.body, symbolize_names: true)
     end
   end
 end
