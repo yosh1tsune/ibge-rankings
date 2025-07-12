@@ -13,7 +13,7 @@ class CitiesSingleton
 
   def cities
     @cities ||= cities_api.flatten.map do |city|
-      City.new(id: city[:id], name: city[:nome], state_acronym: city[:microrregiao][:mesorregiao][:UF][:sigla])
+      City.new(id: city[:id], name: city[:nome], state_acronym: city[:'regiao-imediata'][:'regiao-intermediaria'][:UF][:sigla])
     end
   end
 
