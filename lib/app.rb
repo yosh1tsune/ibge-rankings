@@ -17,12 +17,16 @@ class App
       4 - Sair\n\n"
       input = $stdin.gets.chomp
 
-      if input == '1'
-        state_rankings
-      elsif input == '2'
-        city_rankings
-      elsif input == '3'
-        decade
+      begin
+        if input == '1'
+          state_rankings
+        elsif input == '2'
+          city_rankings
+        elsif input == '3'
+          decade
+        end
+      rescue
+        retry
       end
     end
     puts "\nAdios!"
