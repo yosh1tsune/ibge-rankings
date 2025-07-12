@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking/?localidade=3550308
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Mon, 09 Sep 2024 00:32:40 GMT
+      server:
+      - Apache/2.4.57 (Red Hat Enterprise Linux) OpenSSL/3.0.7 mod_qos/11.74
+      content-type:
+      - application/json
+      content-length:
+      - '1039'
+      cache-control:
+      - max-age=1
+      expires:
+      - Mon, 09 Sep 2024 00:32:42 GMT
+      access-control-allow-methods:
+      - GET, POST, OPTIONS
+      access-control-allow-origin:
+      - "*"
+    body:
+      encoding: UTF-8
+      string: '[{"localidade":"3550308","sexo":null,"res":[{"nome":"MARIA","frequencia":580861,"ranking":1},{"nome":"JOSE","frequencia":269471,"ranking":2},{"nome":"ANA","frequencia":164192,"ranking":3},{"nome":"JOAO","frequencia":129557,"ranking":4},{"nome":"ANTONIO","frequencia":120942,"ranking":5},{"nome":"CARLOS","frequencia":86583,"ranking":6},{"nome":"PAULO","frequencia":83695,"ranking":7},{"nome":"LUCAS","frequencia":74368,"ranking":8},{"nome":"GABRIEL","frequencia":69770,"ranking":9},{"nome":"PEDRO","frequencia":69003,"ranking":10},{"nome":"MARCOS","frequencia":67821,"ranking":11},{"nome":"RAFAEL","frequencia":65123,"ranking":12},{"nome":"LUIZ","frequencia":64820,"ranking":13},{"nome":"FRANCISCO","frequencia":62311,"ranking":14},{"nome":"MARCELO","frequencia":58532,"ranking":15},{"nome":"FELIPE","frequencia":56902,"ranking":16},{"nome":"BRUNO","frequencia":53391,"ranking":17},{"nome":"EDUARDO","frequencia":52510,"ranking":18},{"nome":"RODRIGO","frequencia":51761,"ranking":19},{"nome":"GUILHERME","frequencia":49372,"ranking":20}]}]'
+  recorded_at: Mon, 09 Sep 2024 00:32:10 GMT
+- request:
+    method: get
+    uri: https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking/?localidade=3550308&sexo=F
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Mon, 09 Sep 2024 00:32:41 GMT
+      server:
+      - Apache/2.4.57 (Red Hat Enterprise Linux) OpenSSL/3.0.7 mod_qos/11.74
+      content-type:
+      - application/json
+      content-length:
+      - '1044'
+      cache-control:
+      - max-age=1
+      expires:
+      - Mon, 09 Sep 2024 00:32:43 GMT
+      access-control-allow-methods:
+      - GET, POST, OPTIONS
+      access-control-allow-origin:
+      - "*"
+    body:
+      encoding: UTF-8
+      string: '[{"localidade":"3550308","sexo":"f","res":[{"nome":"MARIA","frequencia":578712,"ranking":1},{"nome":"ANA","frequencia":163620,"ranking":2},{"nome":"JULIANA","frequencia":45103,"ranking":3},{"nome":"FERNANDA","frequencia":42818,"ranking":4},{"nome":"MARCIA","frequencia":42567,"ranking":5},{"nome":"ADRIANA","frequencia":41393,"ranking":6},{"nome":"PATRICIA","frequencia":40845,"ranking":7},{"nome":"CAMILA","frequencia":38842,"ranking":8},{"nome":"SANDRA","frequencia":38409,"ranking":9},{"nome":"JULIA","frequencia":37080,"ranking":10},{"nome":"BEATRIZ","frequencia":36865,"ranking":11},{"nome":"GABRIELA","frequencia":35404,"ranking":12},{"nome":"ALINE","frequencia":34534,"ranking":13},{"nome":"BRUNA","frequencia":33839,"ranking":14},{"nome":"RENATA","frequencia":32525,"ranking":15},{"nome":"AMANDA","frequencia":32068,"ranking":16},{"nome":"MARIANA","frequencia":31960,"ranking":17},{"nome":"LETICIA","frequencia":31663,"ranking":18},{"nome":"VANESSA","frequencia":31357,"ranking":19},{"nome":"LUCIANA","frequencia":31305,"ranking":20}]}]'
+  recorded_at: Mon, 09 Sep 2024 00:32:10 GMT
+- request:
+    method: get
+    uri: https://servicodados.ibge.gov.br/api/v2/censos/nomes/ranking/?localidade=3550308&sexo=M
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Mon, 09 Sep 2024 00:32:41 GMT
+      server:
+      - Apache/2.4.57 (Red Hat Enterprise Linux) OpenSSL/3.0.7 mod_qos/11.74
+      content-type:
+      - application/json
+      content-length:
+      - '1039'
+      cache-control:
+      - max-age=1
+      expires:
+      - Mon, 09 Sep 2024 00:32:43 GMT
+      access-control-allow-methods:
+      - GET, POST, OPTIONS
+      access-control-allow-origin:
+      - "*"
+    body:
+      encoding: UTF-8
+      string: '[{"localidade":"3550308","sexo":"m","res":[{"nome":"JOSE","frequencia":268458,"ranking":1},{"nome":"JOAO","frequencia":128977,"ranking":2},{"nome":"ANTONIO","frequencia":120558,"ranking":3},{"nome":"CARLOS","frequencia":86208,"ranking":4},{"nome":"PAULO","frequencia":83312,"ranking":5},{"nome":"LUCAS","frequencia":73550,"ranking":6},{"nome":"GABRIEL","frequencia":68922,"ranking":7},{"nome":"PEDRO","frequencia":68569,"ranking":8},{"nome":"MARCOS","frequencia":67520,"ranking":9},{"nome":"LUIZ","frequencia":64524,"ranking":10},{"nome":"RAFAEL","frequencia":64514,"ranking":11},{"nome":"FRANCISCO","frequencia":62095,"ranking":12},{"nome":"MARCELO","frequencia":58272,"ranking":13},{"nome":"FELIPE","frequencia":56296,"ranking":14},{"nome":"BRUNO","frequencia":52931,"ranking":15},{"nome":"EDUARDO","frequencia":52194,"ranking":16},{"nome":"RODRIGO","frequencia":51478,"ranking":17},{"nome":"GUILHERME","frequencia":48966,"ranking":18},{"nome":"LUIS","frequencia":48799,"ranking":19},{"nome":"RICARDO","frequencia":48579,"ranking":20}]}]'
+  recorded_at: Mon, 09 Sep 2024 00:32:11 GMT
+recorded_with: VCR 6.3.1

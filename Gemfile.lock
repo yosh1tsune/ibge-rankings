@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    base64 (0.2.0)
     diff-lcs (1.4.4)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
@@ -21,6 +22,8 @@ GEM
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     unicode-display_width (1.7.0)
+    vcr (6.3.1)
+      base64
 
 PLATFORMS
   ruby
@@ -29,9 +32,10 @@ DEPENDENCIES
   faraday
   rspec
   terminal-table
+  vcr
 
 RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.1.4
+   2.5.18
