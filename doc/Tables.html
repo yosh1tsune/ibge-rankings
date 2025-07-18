@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Tables
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Tables";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (T)</a> &raquo;
+    
+    
+    <span class="title">Tables</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Tables
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/services/tables/decades_table_service.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h1 id="label-Tables-3A-3ADecadesTableService">Tables::DecadesTableService</h1>
+
+<p>Serviço responsável por gerar uma tabela formatada que exibe a frequência de uso de nomes por década, utilizando dados do IBGE.</p>
+
+<h2 id="label-Descri-C3-A7-C3-A3o">Descrição</h2>
+
+<p>Esta classe processa dados de frequência de nomes por período e gera uma tabela visualmente organizada usando a gem terminal-table. A tabela mostra como a popularidade de determinados nomes variou ao longo das décadas.</p>
+
+<h2 id="label-Estrutura+dos+dados+esperados">Estrutura dos dados esperados</h2>
+
+<p>O parâmetro <code>data</code> deve ser um array de hashes com a seguinte estrutura:</p>
+
+<pre class="code ruby"><code class="ruby">[
+  {
+    nome: &quot;João&quot;,
+    res: [
+      { periodo: &quot;[1930,1940[&quot;, frequencia: 1234 },
+      { periodo: &quot;[1940,1950[&quot;, frequencia: 2345 },
+      ...
+    ]
+  },
+  ...
+]
+</code></pre>
+
+<h2 id="label-Exemplo+de+uso">Exemplo de uso</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>nome:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Maria</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='label'>res:</span> <span class='lbracket'>[</span>
+      <span class='lbrace'>{</span> <span class='label'>periodo:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[1990,2000[</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>frequencia:</span> <span class='int'>5000</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+      <span class='lbrace'>{</span> <span class='label'>periodo:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[2000,2010[</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>frequencia:</span> <span class='int'>4500</span> <span class='rbrace'>}</span>
+    <span class='rbracket'>]</span>
+  <span class='rbrace'>}</span>
+<span class='rbracket'>]</span>
+
+<span class='id identifier rubyid_service'>service</span> <span class='op'>=</span> <span class='const'>Tables</span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Tables/DecadesTableService.html" title="Tables::DecadesTableService (class)">DecadesTableService</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Tables/DecadesTableService.html#initialize-instance_method" title="Tables::DecadesTableService#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_table'>table</span> <span class='op'>=</span> <span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_table'>table</span>
+</code></pre>
+
+<h2 id="label-Sa-C3-ADda+esperada">Saída esperada</h2>
+
+<p>A tabela gerada terá o formato:</p>
+
+<pre class="code ruby"><code class="ruby">+----------------------+-------+
+| Frequência de uso por década: Maria |
++----------------------+-------+
+| Década               | Maria |
++----------------------+-------+
+| [1990,2000[          | 5000  |
+| [2000,2010[          | 4500  |
++----------------------+-------+
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Tables/DecadesTableService.html" title="Tables::DecadesTableService (class)">DecadesTableService</a></span>
+    
+  
+</p>
+
+
+
+
+
+
+
+
+
+</div>
+
+      <div id="footer">
+  Generated on Fri Jul 18 18:55:16 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.2.2).
+</div>
+
+    </div>
+  </body>
+</html>
