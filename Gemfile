@@ -4,6 +4,7 @@ ruby '3.2.2'
 
 gem 'faraday'
 gem 'terminal-table'
+gem 'yard'
 
 group :test do
   gem 'rspec'

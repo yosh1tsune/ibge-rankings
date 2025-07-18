@@ -24,6 +24,7 @@ GEM
     unicode-display_width (1.7.0)
     vcr (6.3.1)
       base64
+    yard (0.9.37)
 
 PLATFORMS
   ruby
@@ -33,6 +34,7 @@ DEPENDENCIES
   rspec
   terminal-table
   vcr
+  yard
 
 RUBY VERSION
    ruby 3.2.2p53
