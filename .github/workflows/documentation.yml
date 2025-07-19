@@ -26,9 +26,33 @@ jobs:
           ruby-version: '3.2.2'
           bundler-cache: true
 
-      - name: Generate documentation
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+
+      - name: Check for Ruby file changes
+        id: check-ruby-changes
         run: |
-          bundle exec yard doc
+          echo "All changed files: ${{ steps.changed-files.outputs.all_changed_files }}"
+
+          ruby_files=$(echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | grep '\.rb$' | tr '\n' ' ')
+
+          if [ -n "$ruby_files" ]; then
+            echo "ruby_changed=true" >> $GITHUB_OUTPUT
+            echo "ruby_files=$ruby_files" >> $GITHUB_OUTPUT
+            echo "Ruby files changed: $ruby_files"
+          else
+            echo "ruby_changed=false" >> $GITHUB_OUTPUT
+            echo "ruby_files=" >> $GITHUB_OUTPUT
+            echo "No Ruby files were changed"
+          fi
+
+      - name: Generate documentation for changed files
+        if: steps.check-ruby-changes.outputs.ruby_changed == 'true'
+        run: |
+          echo "Ruby files changed: ${{ steps.check-ruby-changes.outputs.ruby_files }}"
+
+          bundle exec yard doc --output-dir doc --incremental
 
       - name: Check for documentation changes
         id: verify-changed-files
