@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: App
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "App";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (A)</a> &raquo;
+    
+    
+    <span class="title">App</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: App
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">App</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/app.rb</dd>
+  </dl>
+  
+</div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#city_rankings-instance_method" title="#city_rankings (instance method)">#<strong>city_rankings</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#decade-instance_method" title="#decade (instance method)">#<strong>decade</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute-instance_method" title="#execute (instance method)">#<strong>execute</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#state_rankings-instance_method" title="#state_rankings (instance method)">#<strong>state_rankings</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="city_rankings-instance_method">
+  
+    #<strong>city_rankings</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/app.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_city_rankings'>city_rankings</span>
+  <span class='const'><span class='object_link'><a href="State.html" title="State (class)">State</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all'><span class='object_link'><a href="State.html#all-class_method" title="State.all (method)">all</a></span></span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:print</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_local'>local</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>while</span> <span class='id identifier rubyid_local'>local</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ok</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nDigite uma cidade (com acentos) e a sigla de sua UF, separados </span><span class='tstring_end'>&quot;</span></span>\
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>por virgula (Ex: São Paulo, SP), para ver os rankings ou &#39;ok&#39; para retornar:\n\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_local'>local</span> <span class='op'>=</span> <span class='gvar'>$stdin</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_local'>local</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>OK</span><span class='tstring_end'>&#39;</span></span>
+
+    <span class='id identifier rubyid_puts'>puts</span> <span class='const'><span class='object_link'><a href="Rankings.html" title="Rankings (module)">Rankings</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rankings/CityRankingsService.html" title="Rankings::CityRankingsService (class)">CityRankingsService</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Rankings/CityRankingsService.html#initialize-instance_method" title="Rankings::CityRankingsService#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>local:</span> <span class='id identifier rubyid_local'>local</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_execute'><span class='object_link'><a href="Rankings/CityRankingsService.html#execute-instance_method" title="Rankings::CityRankingsService#execute (method)">execute</a></span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="decade-instance_method">
+  
+    #<strong>decade</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/app.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_decade'>decade</span>
+  <span class='id identifier rubyid_names'>names</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>while</span> <span class='id identifier rubyid_names'>names</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ok</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nA base de dados do IBGE não leva em conta nomes compostos </span><span class='tstring_end'>&quot;</span></span>\
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(Ex: João Carlos), utilize apenas o primeiro nome.\n</span><span class='tstring_end'>&quot;</span></span>\
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Digite um ou mais nomes, separados por vírgula, para ver sua </span><span class='tstring_end'>&quot;</span></span>\
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>frequência de uso por década ou &#39;ok&#39; para retornar:\n\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_names'>names</span> <span class='op'>=</span> <span class='gvar'>$stdin</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_names'>names</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>OK</span><span class='tstring_end'>&#39;</span></span>
+
+    <span class='id identifier rubyid_puts'>puts</span> <span class='const'><span class='object_link'><a href="Rankings.html" title="Rankings (module)">Rankings</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rankings/NamesByDecadeService.html" title="Rankings::NamesByDecadeService (class)">NamesByDecadeService</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Rankings/NamesByDecadeService.html#initialize-instance_method" title="Rankings::NamesByDecadeService#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>names:</span> <span class='id identifier rubyid_names'>names</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_execute'><span class='object_link'><a href="Rankings/NamesByDecadeService.html#execute-instance_method" title="Rankings::NamesByDecadeService#execute (method)">execute</a></span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="execute-instance_method">
+  
+    #<strong>execute</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/app.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_execute'>execute</span>
+  <span class='id identifier rubyid_input'>input</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bem vindo(a) ao buscador de frequência de nomes no Brasil!</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='kw'>while</span> <span class='id identifier rubyid_input'>input</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>4</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nEscolha uma das seguintes opções:\n
+    1 - Rankings por UF
+    2 - Rankings por cidade
+    3 - Frequencia de um nome por década
+    4 - Sair\n\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_input'>input</span> <span class='op'>=</span> <span class='gvar'>$stdin</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span>
+
+    <span class='kw'>begin</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_input'>input</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1</span><span class='tstring_end'>&#39;</span></span>
+        <span class='id identifier rubyid_state_rankings'>state_rankings</span>
+      <span class='kw'>elsif</span> <span class='id identifier rubyid_input'>input</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>2</span><span class='tstring_end'>&#39;</span></span>
+        <span class='id identifier rubyid_city_rankings'>city_rankings</span>
+      <span class='kw'>elsif</span> <span class='id identifier rubyid_input'>input</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3</span><span class='tstring_end'>&#39;</span></span>
+        <span class='id identifier rubyid_decade'>decade</span>
+      <span class='kw'>end</span>
+    <span class='kw'>rescue</span>
+      <span class='kw'>retry</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nAdios!</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="state_rankings-instance_method">
+  
+    #<strong>state_rankings</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/app.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_state_rankings'>state_rankings</span>
+  <span class='const'><span class='object_link'><a href="State.html" title="State (class)">State</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all'><span class='object_link'><a href="State.html#all-class_method" title="State.all (method)">all</a></span></span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:print</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_uf'>uf</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>while</span> <span class='id identifier rubyid_uf'>uf</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ok</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nDigite a sigla de um Estado para ver os rankings ou &#39;ok&#39; para retornar:\n\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_uf'>uf</span> <span class='op'>=</span> <span class='gvar'>$stdin</span><span class='period'>.</span><span class='id identifier rubyid_gets'>gets</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span>
+    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_uf'>uf</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>OK</span><span class='tstring_end'>&#39;</span></span>
+
+    <span class='id identifier rubyid_puts'>puts</span> <span class='const'><span class='object_link'><a href="Rankings.html" title="Rankings (module)">Rankings</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Rankings/StateRankingsService.html" title="Rankings::StateRankingsService (class)">StateRankingsService</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Rankings/StateRankingsService.html#initialize-instance_method" title="Rankings::StateRankingsService#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>state_acronym:</span> <span class='id identifier rubyid_uf'>uf</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_execute'><span class='object_link'><a href="Rankings/StateRankingsService.html#execute-instance_method" title="Rankings::StateRankingsService#execute (method)">execute</a></span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sat Jul 19 17:15:44 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.2.2).
+</div>
+
+    </div>
+  </body>
+</html>
