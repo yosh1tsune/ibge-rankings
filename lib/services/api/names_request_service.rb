@@ -1,12 +1,12 @@
 require 'faraday'
 require 'json'
 
-# Namespace for API-related request services.
+# Módulo para serviços de requisição relacionados à API.
 module API
-  # Abstract service for requesting name data from the IBGE API.
-  # Subclasses must implement the {#url} method to specify the resource path for the request.
+  # Serviço abstrato para requisição de dados de nomes na API do IBGE.
+  # Subclasses devem implementar o método {#url} para especificar o caminho de recurso da requisição.
   #
-  # @example
+  # @example Exemplo de implementação
   #   class NameFrequencyService < API::NamesRequestService
   #     private
   #
@@ -18,33 +18,33 @@ module API
   #   service = NameFrequencyService.new
   #   service.execute # => [{ nome: "João", frequencia: ... }, ...]
   class NamesRequestService
-    # Base URL for the IBGE names API endpoint.
-    # @return [String] the base endpoint URL
+    # URL base do endpoint de nomes da API do IBGE.
+    # @return [String] URL base do endpoint.
     ENDPOINT = 'https://servicodados.ibge.gov.br/api/v2/censos/nomes'
 
-    # Executes the retrieval of name data from the IBGE API.
+    # Executa a obtenção de dados de nomes da API do IBGE.
     #
-    # @return [Array<Hash>] parsed response data with symbolized keys
+    # @return [Array<Hash>] Dados de resposta analisados com chaves simbolizadas.
     def execute
       response
     end
 
     private
 
-    # Performs the HTTP GET request to the specified URL and parses the JSON response.
+    # Realiza a requisição HTTP GET para a URL especificada e faz o parse da resposta JSON.
     #
     # @api private
-    # @return [Array<Hash>] parsed JSON response data with symbolized keys
+    # @return [Array<Hash>] Dados JSON analisados com chaves simbolizadas.
     def response
       data = Faraday.get(url)
       JSON.parse(data.body, symbolize_names: true)
     end
 
-    # Returns the URL for the API request.
+    # Retorna a URL para a requisição à API.
     #
     # @api private
-    # @raise [NotImplementedError] if not implemented in subclass
-    # @return [String] the full request URL
+    # @raise [NotImplementedError] se não implementado na subclasse.
+    # @return [String] URL completa de requisição.
     def url
       raise NotImplementedError, 'You must implement the URL method in the subclass'
     end

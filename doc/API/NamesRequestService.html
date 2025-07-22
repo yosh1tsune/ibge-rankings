@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Abstract service for requesting name data from the IBGE API. Subclasses must implement the <span class='object_link'>#url</span> method to specify the resource path for the request.</p>
+<p>Serviço abstrato para requisição de dados de nomes na API do IBGE. Subclasses devem implementar o método <span class='object_link'>#url</span> para especificar o caminho de recurso da requisição.</p>
 
 
   </div>
@@ -112,6 +112,10 @@
   <div class="examples">
     <h4 class="tag_title">Examples:</h4>
     
+      
+        <h5 class="example_title"><div class='inline'>
+<p>Exemplo de implementação</p>
+</div></h5>
       
       <pre class="example code"><code><span class='kw'>class</span> <span class='const'>NameFrequencyService</span> <span class='op'>&lt;</span> <span class='const'><span class='object_link'><a href="../API.html" title="API (module)">API</a></span></span><span class='op'>::</span><span class='const'>NamesRequestService</span>
   <span class='id identifier rubyid_private'>private</span>
@@ -144,7 +148,7 @@
           <div class="docstring">
   <div class="discussion">
     
-<p>Base URL for the IBGE names API endpoint.</p>
+<p>URL base do endpoint de nomes da API do IBGE.</p>
 
 
   </div>
@@ -163,7 +167,7 @@
       
         &mdash;
         <div class='inline'>
-<p>the base endpoint URL</p>
+<p>URL base do endpoint.</p>
 </div>
       
     </li>
@@ -209,7 +213,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Executes the retrieval of name data from the IBGE API.</p>
+<p>Executa a obtenção de dados de nomes da API do IBGE.</p>
 </div></span>
   
 </li>
@@ -236,7 +240,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Executes the retrieval of name data from the IBGE API.</p>
+<p>Executa a obtenção de dados de nomes da API do IBGE.</p>
 
 
   </div>
@@ -255,7 +259,7 @@
       
         &mdash;
         <div class='inline'>
-<p>parsed response data with symbolized keys</p>
+<p>Dados de resposta analisados com chaves simbolizadas.</p>
 </div>
       
     </li>
@@ -288,7 +292,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jul 22 21:50:44 2025 by
+  Generated on Tue Jul 22 22:11:13 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.2.2).
 </div>
