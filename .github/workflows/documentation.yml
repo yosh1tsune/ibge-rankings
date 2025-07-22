@@ -51,7 +51,7 @@ jobs:
         run: |
           npm install -g @openai/codex
           export OPENAI_API_KEY="${{ secrets.OPENAI_KEY }}"
-          codex exec --full-auto "Gere comentários de documentação no padrão da gem YARD para os seguintes arquivos Ruby: ${{ steps.check-ruby-changes.outputs.ruby_files }}"
+          codex exec --full-auto "Gere comentários de documentação no padrão da gem YARD, em ${{vars.COMMENTS_LANGUAGE}}, para os seguintes arquivos Ruby: ${{ steps.check-ruby-changes.outputs.ruby_files }}"
       - name: Generate documentation for changed files
         if: steps.check-ruby-changes.outputs.ruby_changed == 'true'
         run: |
