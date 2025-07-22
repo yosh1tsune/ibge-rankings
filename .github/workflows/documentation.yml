@@ -46,7 +46,12 @@ jobs:
             echo "ruby_files=" >> $GITHUB_OUTPUT
             echo "No Ruby files were changed"
           fi
-
+      - name: Generate documentation comments with Codex
+        if: steps.check-ruby-changes.outputs.ruby_changed == 'true'
+        run: |
+          npm install -g @openai/codex
+          export OPENAI_API_KEY="${{ secrets.OPENAI_KEY }}"
+          codex exec --full-auto "Gere comentários de documentação no padrão da gem YARD, em ${{vars.COMMENTS_LANGUAGE}}, para os seguintes arquivos Ruby: ${{ steps.check-ruby-changes.outputs.ruby_files }}"
       - name: Generate documentation for changed files
         if: steps.check-ruby-changes.outputs.ruby_changed == 'true'
         run: |
@@ -67,7 +72,7 @@ jobs:
         if: steps.verify-changed-files.outputs.changed == 'true'
         uses: EndBug/add-and-commit@v9
         with:
-          add: 'doc/'
+          add: 'doc/ ${{ steps.check-ruby-changes.outputs.ruby_files }}'
           message: 'docs: update generated documentation [skip ci]'
           default_author: github_actions
           pathspec_error_handling: ignore
