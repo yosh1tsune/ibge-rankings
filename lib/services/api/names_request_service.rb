@@ -16,5 +16,9 @@ module API
       data = Faraday.get(url)
       JSON.parse(data.body, symbolize_names: true)
     end
+
+    def url
+      raise NotImplementedError, 'You must implement the URL method in the subclass'
+    end
   end
 end

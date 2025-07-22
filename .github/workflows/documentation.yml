@@ -46,7 +46,11 @@ jobs:
             echo "ruby_files=" >> $GITHUB_OUTPUT
             echo "No Ruby files were changed"
           fi
-
+      - name: Generate documentation comments with Codex
+        run: |
+          npm install -g @openai/codex
+          export OPENAI_API_KEY="${{ secrets.OPENAI_KEY }}"
+          codex exec --full-auto "Gere comentários de documentação no padrão da gem YARD para os seguintes arquivos Ruby: ${{ steps.check-ruby-changes.outputs.ruby_files }}"
       - name: Generate documentation for changed files
         if: steps.check-ruby-changes.outputs.ruby_changed == 'true'
         run: |
