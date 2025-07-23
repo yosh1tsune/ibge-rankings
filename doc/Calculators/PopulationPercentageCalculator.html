@@ -99,7 +99,29 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Serviço responsável por calcular o percentual de frequência de ocorrência em relação à população residente de uma localidade, com base em dados do IBGE.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h4 class="tag_title">Examples:</h4>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_service'>service</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Calculators.html" title="Calculators (module)">Calculators</a></span></span><span class='op'>::</span><span class='const'>PopulationPercentageCalculator</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Calculators::PopulationPercentageCalculator#initialize (method)">new</a></span></span><span class='lparen'>(</span>
+  <span class='label'>locality_id:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3550308</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>frequency:</span> <span class='int'>10000</span>
+<span class='rparen'>)</span>
+<span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span> <span class='comment'># =&gt; 5.27</span></code></pre>
+    
+  </div>
+
+
+</div>
 
 
 
@@ -109,7 +131,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#frequency-instance_method" title="#frequency (instance method)">#<strong>frequency</strong>  &#x21d2; Object </a>
+      <a href="#frequency-instance_method" title="#frequency (instance method)">#<strong>frequency</strong>  &#x21d2; Numeric </a>
     
 
     
@@ -129,7 +151,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute frequency.</p>
+<p>Frequência de ocorrência para cálculo do percentual.</p>
 </div></span>
   
 </li>
@@ -138,7 +160,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#locality_id-instance_method" title="#locality_id (instance method)">#<strong>locality_id</strong>  &#x21d2; Object </a>
+      <a href="#locality_id-instance_method" title="#locality_id (instance method)">#<strong>locality_id</strong>  &#x21d2; String </a>
     
 
     
@@ -158,7 +180,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute locality_id.</p>
+<p>Código da localidade conforme base de dados do IBGE.</p>
 </div></span>
   
 </li>
@@ -180,7 +202,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#execute-instance_method" title="#execute (instance method)">#<strong>execute</strong>  &#x21d2; Object </a>
+      <a href="#execute-instance_method" title="#execute (instance method)">#<strong>execute</strong>  &#x21d2; Float </a>
     
 
     
@@ -194,7 +216,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Executa o cálculo do percentual de frequência em relação à população.</p>
+</div></span>
   
 </li>
 
@@ -219,7 +243,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of PopulationPercentageCalculator.</p>
+<p>Inicializa uma nova instância do serviço de cálculo de percentual de população.</p>
 </div></span>
   
 </li>
@@ -243,13 +267,49 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of PopulationPercentageCalculator.</p>
+<p>Inicializa uma nova instância do serviço de cálculo de percentual de população.</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>locality_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>código da localidade para consulta no CSV de população</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>frequency</span>
+      
+      
+        <span class='type'>(<tt>Numeric</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>quantidade de ocorrências na localidade</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -257,13 +317,13 @@
       <pre class="lines">
 
 
-8
-9
-10
-11</pre>
+29
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/services/calculators/population_percentage_calculator.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/services/calculators/population_percentage_calculator.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>locality_id:</span><span class='comma'>,</span> <span class='label'>frequency:</span><span class='rparen'>)</span>
   <span class='ivar'>@locality_id</span> <span class='op'>=</span> <span class='id identifier rubyid_locality_id'>locality_id</span>
@@ -284,7 +344,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="frequency-instance_method">
   
-    #<strong>frequency</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>frequency</strong>  &#x21d2; <tt>Numeric</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -293,13 +353,26 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute frequency.</p>
+<p>Frequência de ocorrência para cálculo do percentual.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Numeric</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -307,12 +380,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/services/calculators/population_percentage_calculator.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/services/calculators/population_percentage_calculator.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_frequency'>frequency</span>
   <span class='ivar'>@frequency</span>
@@ -327,7 +400,7 @@
       <div class="method_details ">
   <h3 class="signature " id="locality_id-instance_method">
   
-    #<strong>locality_id</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>locality_id</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -336,13 +409,26 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute locality_id.</p>
+<p>Código da localidade conforme base de dados do IBGE.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -350,12 +436,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/services/calculators/population_percentage_calculator.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/services/calculators/population_percentage_calculator.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_locality_id'>locality_id</span>
   <span class='ivar'>@locality_id</span>
@@ -375,24 +461,53 @@
       <div class="method_details first">
   <h3 class="signature first" id="execute-instance_method">
   
-    #<strong>execute</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>execute</strong>  &#x21d2; <tt>Float</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Executa o cálculo do percentual de frequência em relação à população.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>percentual calculado, entre 0.0 e 100.0</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-13
-14
-15</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/services/calculators/population_percentage_calculator.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/services/calculators/population_percentage_calculator.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_execute'>execute</span>
   <span class='lparen'>(</span><span class='id identifier rubyid_frequency'>frequency</span> <span class='op'>/</span> <span class='id identifier rubyid_population'>population</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='int'>100</span>
@@ -407,7 +522,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jul 22 22:11:14 2025 by
+  Generated on Wed Jul 23 14:46:55 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.2.2).
 </div>

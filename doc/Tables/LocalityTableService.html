@@ -99,7 +99,37 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Serviço responsável por gerar uma tabela de localidades com posicionamento, nome, frequência de uso e percentual em relação à população residente.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h4 class="tag_title">Examples:</h4>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+  <span class='lbrace'>{</span>
+    <span class='label'>localidade:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>3550308</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>res:</span> <span class='lbracket'>[</span>
+      <span class='lbrace'>{</span> <span class='label'>ranking:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>nome:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Maria</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>frequencia:</span> <span class='int'>100000</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+      <span class='lbrace'>{</span> <span class='label'>ranking:</span> <span class='int'>2</span><span class='comma'>,</span> <span class='label'>nome:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>João</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>frequencia:</span> <span class='int'>90000</span> <span class='rbrace'>}</span>
+    <span class='rbracket'>]</span>
+  <span class='rbrace'>}</span>
+<span class='rbracket'>]</span>
+<span class='id identifier rubyid_service'>service</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Tables.html" title="Tables (module)">Tables</a></span></span><span class='op'>::</span><span class='const'>LocalityTableService</span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="#initialize-instance_method" title="Tables::LocalityTableService#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>title:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Nomes Populares</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_table'>table</span> <span class='op'>=</span> <span class='id identifier rubyid_service'>service</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span>
+<span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_table'>table</span></code></pre>
+    
+  </div>
+
+
+</div>
 
 
 
@@ -109,7 +139,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#data-instance_method" title="#data (instance method)">#<strong>data</strong>  &#x21d2; Object </a>
+      <a href="#data-instance_method" title="#data (instance method)">#<strong>data</strong>  &#x21d2; Array&lt;Hash&gt; </a>
     
 
     
@@ -129,7 +159,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute data.</p>
+<p>Dados de localidades para preenchimento das linhas.</p>
 </div></span>
   
 </li>
@@ -138,7 +168,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#title-instance_method" title="#title (instance method)">#<strong>title</strong>  &#x21d2; Object </a>
+      <a href="#title-instance_method" title="#title (instance method)">#<strong>title</strong>  &#x21d2; String </a>
     
 
     
@@ -158,7 +188,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute title.</p>
+<p>Título exibido no topo da tabela.</p>
 </div></span>
   
 </li>
@@ -180,7 +210,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#execute-instance_method" title="#execute (instance method)">#<strong>execute</strong>  &#x21d2; Object </a>
+      <a href="#execute-instance_method" title="#execute (instance method)">#<strong>execute</strong>  &#x21d2; Terminal::Table </a>
     
 
     
@@ -194,7 +224,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Executa a geração da tabela formatada.</p>
+</div></span>
   
 </li>
 
@@ -219,7 +251,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of LocalityTableService.</p>
+<p>Inicializa uma nova instância do serviço de geração de tabela de localidades.</p>
 </div></span>
   
 </li>
@@ -243,13 +275,49 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of LocalityTableService.</p>
+<p>Inicializa uma nova instância do serviço de geração de tabela de localidades.</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>title</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>título exibido no topo da tabela.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>data</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Hash&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>array de hashes contendo :localidade e :res com dados de respostas.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -257,13 +325,13 @@
       <pre class="lines">
 
 
-9
-10
-11
-12</pre>
+32
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/services/tables/locality_table_service.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/services/tables/locality_table_service.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>title:</span><span class='comma'>,</span> <span class='label'>data:</span><span class='rparen'>)</span>
   <span class='ivar'>@title</span> <span class='op'>=</span> <span class='id identifier rubyid_title'>title</span>
@@ -284,7 +352,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="data-instance_method">
   
-    #<strong>data</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>data</strong>  &#x21d2; <tt>Array&lt;Hash&gt;</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -293,13 +361,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute data.</p>
+<p>Returns dados de localidades para preenchimento das linhas.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Hash&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>dados de localidades para preenchimento das linhas.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -307,12 +393,12 @@
       <pre class="lines">
 
 
-7
-8
-9</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/services/tables/locality_table_service.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/services/tables/locality_table_service.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_data'>data</span>
   <span class='ivar'>@data</span>
@@ -327,7 +413,7 @@
       <div class="method_details ">
   <h3 class="signature " id="title-instance_method">
   
-    #<strong>title</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>title</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -336,13 +422,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute title.</p>
+<p>Returns título exibido no topo da tabela.</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>título exibido no topo da tabela.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -350,12 +454,12 @@
       <pre class="lines">
 
 
-7
-8
-9</pre>
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/services/tables/locality_table_service.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/services/tables/locality_table_service.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_title'>title</span>
   <span class='ivar'>@title</span>
@@ -375,24 +479,53 @@
       <div class="method_details first">
   <h3 class="signature first" id="execute-instance_method">
   
-    #<strong>execute</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>execute</strong>  &#x21d2; <tt>Terminal::Table</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Executa a geração da tabela formatada.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Terminal::Table</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>objeto de tabela pronto para exibição.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-14
-15
-16</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/services/tables/locality_table_service.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/services/tables/locality_table_service.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_execute'>execute</span>
   <span class='id identifier rubyid_table'>table</span>
@@ -407,7 +540,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Jul 22 22:11:13 2025 by
+  Generated on Wed Jul 23 14:46:55 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.2.2).
 </div>
