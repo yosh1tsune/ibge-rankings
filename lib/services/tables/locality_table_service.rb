@@ -11,6 +11,7 @@ module Tables
       @data = data
     end
 
+    #
     def execute
       table
     end
