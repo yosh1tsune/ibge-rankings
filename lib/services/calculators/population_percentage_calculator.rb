@@ -5,6 +5,7 @@ module Calculators
   class PopulationPercentageCalculator
     attr_reader :locality_id, :frequency
 
+    # Teste
     def initialize(locality_id:, frequency:)
       @locality_id = locality_id
       @frequency = frequency
