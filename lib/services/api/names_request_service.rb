@@ -46,7 +46,7 @@ module API
     # @raise [NotImplementedError] se não implementado na subclasse.
     # @return [String] URL completa de requisição.
     def url
-      raise NotImplementedError, 'You must implement the URL method in the subclass'
+      raise NotImplementedError, 'Você deve implementar o método #url na subclasse'
     end
   end
 end
